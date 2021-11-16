@@ -1,0 +1,31 @@
+.vh-window {
+    position: fixed;
+    z-index: 99999999;
+    top: 0;
+    left: 0;
+    min-width: 300px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px #aaa;
+    .vh-window-header {
+        padding: 5px;
+        background: rgb(94, 89, 89);
+        color: #fff;
+        display: flex;
+        .vh-window-header_title {
+            flex: auto;
+            padding-left: 5px;
+        }
+        .bi {
+            flex: none;
+            padding: 2px 5px;
+            &:hover {
+                background: #ccc;
+            }
+        }
+    }
+    .vh-window-body {
+        border: 1px solid rgb(94, 89, 89);
+        min-height: 100px;
+    }
+}

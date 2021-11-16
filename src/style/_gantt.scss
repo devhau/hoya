@@ -1,0 +1,179 @@
+.vh-gantt {
+    min-height: 50px;
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    .vh-gantt-line {
+        flex: none;
+        width: 3px;
+        background: #ccc;
+        cursor: w-resize;
+        &:hover {
+            background: #666;
+            width: 3px;
+        }
+    }
+    .vh-gantt-column {
+        flex: none;
+        min-width: 50px;
+        overflow: auto;
+        border-right: rgb(59, 55, 55) 1px solid;
+        display: flex;
+        flex-direction: column;
+        &:first-child {
+            border-left: rgb(59, 55, 55) 1px solid;
+        }
+        .vh-gantt-column-header {
+            height: 50%;
+            text-align: center;
+            border-bottom: rgb(59, 55, 55) 1px solid;
+        }
+        .vh-gantt-column-items {
+            height: 50%;
+            display: flex;
+            .vh-gantt-column-item {
+                padding: 2px 0px;
+                width: 25px;
+                text-align: center;
+                border-right: rgb(192, 190, 190) 1px dashed;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .vh-gantt-timeline {
+        max-width: 100%;
+        overflow: auto;
+        flex: auto;
+    }
+    .vh-gantt-info {
+        max-width: 40%;
+        flex: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+    .vh-gantt-row {
+        display: flex;
+        flex-direction: row;
+        border-bottom: rgb(59, 55, 55) 1px solid;
+        width: fit-content;
+        .vh-gantt-cell {
+            flex: none;
+            padding: 4px;
+            border-right: #3b3737 1px solid;
+            min-width: 50px;
+            &:last-child {
+                border-right: none;
+            }
+            .vh-gantt-column {
+                margin: -4px;
+                height: 100%;
+            }
+        }
+    }
+
+    .vh-gantt-header {
+        flex: none;
+        border-bottom: rgb(59, 55, 55) 1px solid;
+        background: rgb(59, 89, 152);
+        color: #fff;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        .vh-gantt-info {
+            flex: none;
+            overflow: hidden;
+            .vh-gantt-row {
+                height: 100%;
+                border-bottom: none;
+                .vh-gantt-cell {
+                    padding: 10px 0px;
+                    text-align: center;
+                    vertical-align: middle;
+                    &:last-child {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+        .vh-gantt-timeline {
+            overflow: hidden;
+            .vh-gantt-cell {
+                margin: 0;
+                padding: 0;
+                border-right: none;
+            }
+            .vh-gantt-column {
+                margin: 0;
+
+                &:hover {
+                    background: #ccc;
+                }
+            }
+        }
+    }
+    .vh-gantt-body {
+        flex: auto;
+        border-bottom: rgb(59, 55, 55) 1px solid;
+        min-height: 100px;
+        display: flex;
+        .vh-gantt-info {
+            padding-bottom: 28px;
+            .vh-gantt-row:hover {
+                background: #666;
+                * {
+                    color: #fff;
+                }
+            }
+        }
+
+        .vh-gantt-timeline {
+            .vh-gantt-backgourd {
+                .vh-gantt-cell {
+                    border-right: none;
+                    padding: 0px 4px;
+                    .vh-gantt-column {
+                        margin: 0px -4px;
+                    }
+                }
+                position: relative;
+                .vh-gantt-column-items {
+                    min-height: 100%;
+                    .vh-gantt-column-item {
+                        min-height: 100%;
+                    }
+                }
+                .vh-gantt-data {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    .vh-gantt-row {
+                        height: 33px;
+                        padding: 4px 0px;
+                        display: block;
+                        width: 100%;
+                        border-bottom: rgb(59, 55, 55) 1px solid;
+                        .vh-gantt-point {
+                            height: 24px;
+                            flex: none;
+                            background: rosybrown;
+                            min-height: 20px;
+                            &:hover {
+                                background: #666;
+                                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .vh-gantt-footer {
+        flex: none;
+        border-bottom: rgb(59, 55, 55) 1px solid;
+        height: 25px;
+        display: flex;
+    }
+}

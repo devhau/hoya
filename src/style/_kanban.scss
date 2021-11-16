@@ -1,0 +1,86 @@
+.vh-kanban {
+    min-width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 10px;
+    .vh-kanban-action {
+        min-width: 300px;
+        background: unset !important;
+        .vh-kanban-card-title {
+            padding: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100% !important;
+            background-color: #99a3ad;
+            transition: 85ms ease-in, opacity 40ms ease-in, border-color 85ms ease-in;
+            color: #fff;
+        }
+        input.vh-kanban-card-title,
+        textarea.vh-kanban-card-title {
+            background-color: #fff;
+            color: #111;
+            font-weight: 400;
+            height: min-content;
+        }
+    }
+    .vh-kanban-column {
+        flex: none;
+        margin: 0px 3px;
+        width: 300px;
+        min-height: 40px;
+        max-height: 100%;
+        position: relative;
+        overflow: hidden;
+        .vh-kanban-action {
+            min-width: unset;
+        }
+        &.sortable-ghost {
+            border: none !important;
+            .vh-kanban-card {
+                border: #777 1px dashed !important;
+                background: rgba($color: #000000, $alpha: 0.6) !important;
+            }
+        }
+        .vh-kanban-card {
+            border-radius: 2px;
+            border: 1px solid #999;
+            padding: 0px 5px;
+            background: #eee;
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
+            position: relative;
+            label.vh-kanban-card-title {
+                padding: 5px;
+                font-size: 16px;
+                font-weight: 500;
+                margin: 2px 0;
+                max-width: 100%;
+                word-wrap: break-word;
+            }
+            input.vh-kanban-card-title {
+                width: 100%;
+                border: 1px solid #aaa;
+                padding: 6px;
+                margin: 2px 0;
+                font-size: 14px;
+                font-weight: 400;
+                word-wrap: break-word;
+            }
+            .vh-kanban-card-body {
+                max-height: 100%;
+                overflow: auto;
+                .vh-kanban-item {
+                    margin-bottom: 5px;
+                    border: 1px solid #aaa;
+                    background: #fff;
+                    padding: 3px;
+                    border-radius: 2px;
+                    word-wrap: break-word;
+                }
+            }
+        }
+    }
+}

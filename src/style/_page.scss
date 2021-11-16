@@ -1,0 +1,26 @@
+.vh-page {
+    min-height: 300px;
+    padding: 10px;
+    border-radius: 2px;
+}
+.vh-page-manager {
+    background: #fff;
+    .manager-header {
+        padding: 5px 10px;
+        display: flex;
+        flex-direction: row;
+        .header-title {
+            flex: auto;
+            font-size: 1.70625rem;
+            font-weight: 500;
+            i {
+                margin: 0px 5px;
+            }
+        }
+    }
+    .manager-body {
+        .table-responsive {
+            min-height: 300px;
+        }
+    }
+}

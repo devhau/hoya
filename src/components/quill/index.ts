@@ -1,0 +1,1 @@
+export { vhQuill } from './quill';

@@ -1,0 +1,29 @@
+.vh-draggable {
+    .vh-draggable-item {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 5px;
+    }
+    &.vh-draggable-fallback {
+        .sortable-ghost {
+            visibility: inherit !important;
+            background: transparent !important;
+            color: transparent !important;
+            overflow: hidden !important;
+
+            border: #666 2px dashed !important;
+            * {
+                background: transparent !important;
+                color: transparent !important;
+                overflow: hidden !important;
+                border: none !important;
+            }
+        }
+        .sortable-fallback {
+            opacity: 0.96 !important;
+            transform: rotate(-2deg);
+            overflow: hidden;
+            padding-bottom: 5px;
+        }
+    }
+}

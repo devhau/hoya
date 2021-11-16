@@ -1,0 +1,111 @@
+.vh-table {
+    min-width: 300px;
+    .vh-column-header {
+        position: relative;
+        min-width: 25px;
+        .vh-column-button {
+            display: inline-flex;
+            flex-direction: row;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            .btn {
+                margin-right: 5px;
+                padding: 3px 6px;
+            }
+        }
+        .vh-column-action {
+            top: 33px;
+            border-radius: 0px 3px 3px 0px;
+            position: absolute;
+            min-height: 150px;
+            width: 100%;
+            background: #eee;
+        }
+    }
+    thead {
+        tr {
+            .vh-column-10 {
+                min-width: 10px;
+                max-width: 30px;
+            }
+            .vh-column-15 {
+                min-width: 15px;
+                max-width: 50px;
+            }
+            .vh-column-25 {
+                min-width: 25px;
+                max-width: 125px;
+            }
+            .vh-column-50 {
+                min-width: 50px;
+                max-width: 150px;
+            }
+            .vh-column-100 {
+                min-width: 100px;
+                max-width: 200px;
+            }
+            .vh-column-150 {
+                min-width: 150px;
+                max-width: 350px;
+            }
+            .vh-column-250 {
+                min-width: 250px;
+                max-width: 350px;
+            }
+            .vh-column-350 {
+                min-width: 350px;
+                max-width: 450px;
+            }
+            .vh-column-450 {
+                min-width: 450px;
+                max-width: 550px;
+            }
+            .vh-column-550 {
+                min-width: 550px;
+                max-width: 650px;
+            }
+        }
+    }
+}
+
+.vh-column-header {
+    position: relative;
+    .vh-column-header_box {
+        display: flex;
+        flex-direction: row;
+        .vh-column-header_box--title {
+            flex: auto;
+        }
+        .vh-column-header_box--icon {
+            flex: none;
+            margin-left: 5px;
+        }
+    }
+    .vh-column-header_filter {
+        position: absolute;
+        background: #ccc;
+        box-shadow: 2px 2px 2px #aaa;
+        min-width: 200px;
+        min-height: 50px;
+        top: 25px;
+        right: 3px;
+        .vh-column-header_filter--body {
+            padding: 5px;
+        }
+        .vh-column-header_filter--footer {
+            display: flex;
+            flex-direction: row;
+            .btn {
+                margin: 0px 5px 5px 5px;
+                flex: auto;
+            }
+        }
+    }
+}
+.vh-data-emtpy {
+    background: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px !important;
+}

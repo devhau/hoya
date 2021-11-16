@@ -1,0 +1,233 @@
+.vh-application {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+    .vh-main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        &.vh-none-layout {
+            display: block;
+        }
+        .vh-sidebar {
+            transition: margin-left 0.1s ease-in-out, width 0.1s ease-in-out;
+            flex: none;
+            width: $sidebar_width_full;
+            min-height: 100vh;
+            background: #ccc;
+            display: inline-flex;
+            flex-direction: column;
+            .vh-logo {
+                height: 40px;
+                background: #035280;
+                text-align: center;
+                color: #fff;
+                .vh-logo-app {
+                    display: inline;
+                    line-height: 40px;
+                    font-weight: 500;
+                }
+                .vh-logo-mini {
+                    display: none;
+                    text-align: center;
+                    line-height: 40px;
+                    font-weight: 700;
+                }
+            }
+            .vh-sidebar-main {
+                color: #035280;
+                * {
+                    color: #035280;
+                }
+                flex: auto;
+                overflow: auto;
+            }
+            .vh-version {
+                height: 30px;
+                background: #035280;
+                color: #fff;
+                text-align: center;
+                .vh-version-app {
+                    display: inline;
+                    line-height: 30px;
+                    font-weight: 500;
+                }
+                .vh-version-mini {
+                    display: none;
+                    text-align: center;
+                    line-height: 30px;
+                    font-weight: 600;
+                }
+            }
+        }
+        .vh-body {
+            transition: margin-left 0.1s ease-in-out, width 0.1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            flex-basis: auto;
+            width: calc(100% - $sidebar_width_full);
+            .vh-header {
+                flex: none;
+                padding: 1px 3px 1px 1px;
+                height: 40px;
+                background: #026aa7;
+                display: inline-flex;
+                color: #fff;
+                .vh-touch-sidebar {
+                    height: 100%;
+                    padding: 5px 10px;
+                    &:hover {
+                        background: #033949;
+                        cursor: pointer;
+                    }
+                }
+                .vh-menu-header-left,
+                .vh-menu-header-right {
+                    float: none;
+                }
+            }
+            .vh-content {
+                flex: auto;
+                overflow: auto;
+            }
+            .vh-footer {
+                flex: none;
+                height: 30px;
+                background: #026aa7;
+                display: inline-flex;
+            }
+            .vh-header,
+            .vh-footer {
+                .vh-menu-float-left {
+                    .vh-menu-link,
+                    .vh-menu-label {
+                        padding: 6px;
+                        label,
+                        i {
+                            color: #eee;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .vh-sidebar {
+                display: none;
+            }
+            .vh-body {
+                width: 100%;
+            }
+        }
+    }
+
+    .vh-menu-sidebar {
+        .vh-menu-item {
+            min-width: 100%;
+            &:last-child {
+                border-right: none;
+            }
+            .vh-menu-link,
+            .vh-menu-label {
+                * {
+                    color: rgba(0, 0, 0, 0.8) !important;
+                }
+                &:hover {
+                    background: rgb(136, 130, 130);
+                    * {
+                        color: #fff !important;
+                    }
+                    cursor: pointer;
+                }
+            }
+        }
+        .vh-menu-sub {
+            z-index: 99;
+            width: calc(100% - 15px);
+            .vh-menu-item {
+                width: 100%;
+            }
+        }
+    }
+
+    .vh-menu.vh-menu-footer .vh-menu-label,
+    .vh-menu.vh-menu-footer .vh-menu-link {
+        padding: 2px 6px !important;
+    }
+    .vh-mini {
+        @media only screen and (min-width: 700px) {
+            .vh-sidebar {
+                width: $sidebar_width_mini;
+
+                .vh-sidebar-main {
+                    overflow: unset;
+                }
+                .vh-logo {
+                    .vh-logo-app {
+                        display: none;
+                    }
+                    .vh-logo-mini {
+                        display: block;
+                    }
+                }
+                .vh-version {
+                    .vh-version-app {
+                        display: none;
+                    }
+                    .vh-version-mini {
+                        display: block;
+                    }
+                }
+                .vh-menu:not(.vh-menu-sub) {
+                    & > .vh-menu-item {
+                        label {
+                            display: none;
+                        }
+                        i {
+                            padding-left: 5px;
+                        }
+                    }
+                }
+                .vh-menu-item {
+                    position: relative;
+                    .active.vh-menu-sub {
+                        display: none;
+                    }
+                    &:hover {
+                        z-index: 9;
+                        .vh-menu-sub {
+                            background: rgb(226, 211, 211);
+                            border: #026aa7 1px solid !important;
+                            top: 0;
+                            left: 35px;
+                            position: absolute !important;
+                            display: inline-block;
+                            & > .vh-menu-item {
+                                label {
+                                    display: inline-block;
+                                }
+                                i {
+                                    padding-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .vh-body {
+                width: calc(100% - $sidebar_width_mini);
+            }
+        }
+        @media only screen and (max-width: 700px) {
+            .vh-sidebar {
+                display: block;
+            }
+        }
+    }
+}

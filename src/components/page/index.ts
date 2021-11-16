@@ -1,0 +1,1 @@
+export { vhPage } from './page';

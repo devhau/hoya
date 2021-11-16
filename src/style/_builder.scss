@@ -1,0 +1,11 @@
+.vh-builder {
+    .vh-builder-item {
+        position: relative;
+        padding-right: 45px;
+        .btn-danger {
+            position: absolute;
+            right: 5px;
+            top: 10px;
+        }
+    }
+}

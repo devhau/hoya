@@ -1,0 +1,1 @@
+export { vhBadge } from './badge';

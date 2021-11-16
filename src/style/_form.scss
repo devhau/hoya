@@ -1,0 +1,59 @@
+.vh-label-input {
+    min-height: 10px;
+    width: 100%;
+}
+.vh-label-input,
+.form-control {
+    border-radius: 2px !important;
+    &:focus {
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.05rem rgb(13 110 253 / 25%) !important;
+    }
+}
+.btn {
+    border-radius: 2px !important;
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%) !important;
+    }
+    .icon-before {
+        margin-right: 2px;
+    }
+    .icon-after {
+        margin-left: 2px;
+    }
+}
+
+.vh-group-checkbox {
+    max-height: 100%;
+    overflow: auto;
+    .vh-group-item {
+        border-bottom: 1px dotted #eee;
+        .vh-group-item-header {
+            padding: 1px;
+            display: flex;
+            .form-check {
+                flex: auto;
+            }
+            .bi {
+                flex: none;
+                &:hover {
+                    color: rgb(7, 108, 175);
+                }
+            }
+        }
+        .vh-group-item-body {
+            display: flex;
+            flex-direction: column;
+            .vh-form-check {
+                border-top: 1px dotted #ccc;
+                padding-left: 3em;
+            }
+        }
+    }
+}
+.ql-editor {
+    min-height: 100px;
+}

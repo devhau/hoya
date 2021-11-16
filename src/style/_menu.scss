@@ -1,0 +1,101 @@
+.vh-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .vh-menu-sub {
+        min-width: 200px;
+        transition: margin-left 0.1s ease-in-out, width 0.1s ease-in-out;
+        margin-left: 15px;
+        display: none;
+        &.active,
+        &:hover {
+            display: block;
+        }
+    }
+    .vh-menu-item {
+        max-width: 500px;
+        margin: 0;
+        padding: 0;
+        &:hover,
+        &:active,
+        &:focus {
+            & > .vh-menu-sub {
+                display: block;
+            }
+        }
+
+        .vh-menu-link,
+        .vh-menu-label {
+            padding: 10px;
+            margin: 0;
+            display: block;
+            text-decoration: none;
+            color: #343a40;
+            i {
+                padding-left: 2px;
+                padding-right: 5px;
+            }
+            &:hover,
+            &.router-link-active {
+                background: #888282;
+                color: #fff;
+                * {
+                    cursor: pointer;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.vh-menu-float-left {
+    & > .vh-menu-item {
+        float: left;
+        &:last-child {
+            border-right: none;
+        }
+    }
+    .vh-menu-item {
+        position: relative;
+    }
+    .vh-menu-sub {
+        z-index: 99;
+        margin-left: 1px;
+        right: 0;
+        color: #000;
+        position: absolute;
+        .vh-menu-item {
+            float: unset;
+            background: #fff;
+            border-bottom: #343a40 1px solid;
+            * {
+                color: rgba(0, 0, 0, 0.8) !important;
+            }
+            .vh-menu-link,
+            .vh-menu-label {
+                color: #343a40;
+                i {
+                    padding-left: 2px;
+                    padding-right: 5px;
+                }
+                &:hover,
+                &.router-link-active {
+                    background: #888282;
+                    color: #fff;
+                    * {
+                        cursor: pointer;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        &.vh-menu-component {
+            .vh-menu-component-body {
+                margin-top: 3px;
+                background: #fff;
+                color: #000;
+                border: #cadbeb 1px solid;
+                min-height: 100px;
+            }
+        }
+    }
+}

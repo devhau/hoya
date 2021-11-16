@@ -1,0 +1,16 @@
+export const GridColumn = {
+    Column1: 'col-lg-1 col-md-6 col-sm-12',
+    Column2: 'col-lg-2 col-md-6 col-sm-12',
+    Column3: 'col-lg-3 col-md-6 col-sm-12',
+    Column4: 'col-lg-4 col-md-6 col-sm-12',
+    Column5: 'col-lg-5 col-md-6 col-sm-12',
+    Column6: 'col-lg-6 col-md-6 col-sm-12',
+    Column7: 'col-lg-7 col-md-6 col-sm-12',
+    Column8: 'col-lg-8 col-md-6 col-sm-12',
+    Column9: 'col-lg-9 col-md-6 col-sm-12',
+    Column10: 'col-lg-10 col-md-6 col-sm-12',
+    Column11: 'col-lg-11 col-md-6 col-sm-12',
+    Column12: 'col-lg-12 col-md-6 col-sm-12',
+    Column: 'col-lg col-md-6 col-sm-12',
+    ColumnAuto: 'col-lg-auto col-md-6 col-sm-12',
+};

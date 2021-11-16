@@ -1,0 +1,1 @@
+export { vhTable } from './table';

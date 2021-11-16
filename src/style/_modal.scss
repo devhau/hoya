@@ -1,0 +1,41 @@
+.modal-face {
+    background: rgba($color: #000000, $alpha: 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 1055;
+}
+.modal {
+    .modal-content {
+        border-radius: 2px;
+        .btn-close {
+            &:focus {
+                box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);
+            }
+            padding: 5px;
+            margin: 0px;
+        }
+        .modal-header,
+        .modal-body,
+        .modal-footer {
+            padding: 7px;
+        }
+    }
+}
+.vh-modal-loading {
+    .modal-body {
+        min-height: 100px;
+        .vh-face-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgb(90, 90, 90);
+            margin: -7px;
+            padding: 40px;
+            text-align: center;
+            opacity: 0.8;
+        }
+    }
+}
