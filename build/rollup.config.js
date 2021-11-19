@@ -109,7 +109,7 @@ if (!argv.format || argv.format === 'es') {
     external,
     output: {
       sourcemap: true,
-      file: 'dist/lotus.esm.js',
+      file: 'dist/vueux.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -150,9 +150,9 @@ if (!argv.format || argv.format === 'cjs') {
     output: {
       sourcemap: true,
       compact: true,
-      file: 'dist/lotus.ssr.js',
+      file: 'dist/vueux.ssr.js',
       format: 'cjs',
-      name: 'lotus',
+      name: 'vueux',
       exports: 'auto',
       globals,
     },
@@ -173,9 +173,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/lotus.min.js',
+      file: 'dist/vueux.min.js',
       format: 'iife',
-      name: 'lotus',
+      name: 'vueux',
       exports: 'auto',
       globals,
     },

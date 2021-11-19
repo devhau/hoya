@@ -1,5 +1,5 @@
 {
-  "name": "lotus",
+  "name": "vueux",
   "version": "0.0.1",
   "description": "Vue 3 Booostrap 5 vuex 4 kanban",
   "author": {
@@ -21,10 +21,10 @@
     "vue-quill"
   ],
   "license": "MIT",
-  "main": "dist/lotus.ssr.js",
-  "browser": "dist/lotus.esm.js",
-  "module": "dist/lotus.esm.js",
-  "unpkg": "dist/lotus.min.js",
+  "main": "dist/vueux.ssr.js",
+  "browser": "dist/vueux.esm.js",
+  "module": "dist/vueux.esm.js",
+  "unpkg": "dist/vueux.min.js",
   "types": "dist/types/src/entry.esm.d.ts",
   "files": [
     "dist/*"
