@@ -109,7 +109,7 @@ if (!argv.format || argv.format === 'es') {
     external,
     output: {
       sourcemap: true,
-      file: 'dist/vueux.esm.js',
+      file: 'dist/hoya.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -150,9 +150,9 @@ if (!argv.format || argv.format === 'cjs') {
     output: {
       sourcemap: true,
       compact: true,
-      file: 'dist/vueux.ssr.js',
+      file: 'dist/hoya.ssr.js',
       format: 'cjs',
-      name: 'vueux',
+      name: 'hoya',
       exports: 'auto',
       globals,
     },
@@ -173,9 +173,9 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/vueux.min.js',
+      file: 'dist/hoya.min.js',
       format: 'iife',
-      name: 'vueux',
+      name: 'hoya',
       exports: 'auto',
       globals,
     },

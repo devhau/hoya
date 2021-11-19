@@ -1,10 +1,19 @@
 {
-  "name": "vueux",
+  "name": "hoya",
   "version": "0.0.1",
   "description": "Vue 3 Booostrap 5 vuex 4 kanban",
   "author": {
     "name": "Nguyen Van Hau",
     "email": "nguyenvanhaudev@gmail.com"
+  },
+  
+  "homepage": "https://github.com/devhau/hoya",
+  "bugs": {
+    "url": "https://github.com/devhau/hoya/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devhau/hoya.git"
   },
   "keywords": [
     "typescript",
@@ -21,10 +30,10 @@
     "vue-quill"
   ],
   "license": "MIT",
-  "main": "dist/vueux.ssr.js",
-  "browser": "dist/vueux.esm.js",
-  "module": "dist/vueux.esm.js",
-  "unpkg": "dist/vueux.min.js",
+  "main": "dist/hoya.ssr.js",
+  "browser": "dist/hoya.esm.js",
+  "module": "dist/hoya.esm.js",
+  "unpkg": "dist/hoya.min.js",
   "types": "dist/types/src/entry.esm.d.ts",
   "files": [
     "dist/*"
