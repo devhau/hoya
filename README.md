@@ -1,4 +1,4 @@
-# vue-ui
+# HOYA
 
 Demo Source: https://github.com/devhau/vue-ui-demo
 
