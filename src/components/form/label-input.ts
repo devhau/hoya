@@ -117,12 +117,12 @@ export const vhLabelInput = defineComponent({
             className = makeTextClass(className, '', classLabel, '');
             let childLabel: any = [];
             const { openEdit } = this;
-            if (this.editOnDblClick) {
+            if (this.editOnDblClick == true) {
                 childLabel = [
                     h('label', {
                         ...this.$attrs,
                         class: className,
-                        onDblClick: () => {
+                        ondblclick: () => {
                             openEdit();
                         }
                     }, modelValue)

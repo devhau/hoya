@@ -19,8 +19,9 @@
     <vh-checkbox v-model="checkes" :value="3" />3
     <vh-checkbox v-model="checkes" :value="4" />4
     <vh-checkbox v-model="checkes" :value="5" />5
+    <vh-label-input v-model="text2" :editOnDblClick="true" />
     {{ text }}
-    <vh-quill v-model:content="text"></vh-quill>
+    <vh-quill v-model="text"></vh-quill>
   </vh-page>
 </template>
 <script>
@@ -29,6 +30,7 @@ export default {
     return {
       page: 0,
       checkes: [2, 3],
+      text2: "xin chào",
       text: "",
     };
   },

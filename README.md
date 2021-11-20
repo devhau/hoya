@@ -38,5 +38,6 @@ Coffee to Code Converter send me:
 
 - https://www.patreon.com/devhau
 - http://paypal.me/haudev
+- http://hau.xyz
 
 Thank for you!
