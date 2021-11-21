@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhButtonGroup = defineComponent({
     name: 'vh-button-group',
@@ -11,7 +11,7 @@ export const vhButtonGroup = defineComponent({
     },
     setup(props, { slots, attrs }) {
         const { class: classProps } = props;
-        let className = makeTextClass('btn-group', '', classProps, '');
+        let className = makeClassByName('btn-group', '', classProps, '');
         // return the render function
         return () =>
             h(

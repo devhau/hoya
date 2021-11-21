@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { isFunction, makeTextClass, } from '@/utils/class.util';
+import { isFunction, makeClassByName, } from '@/utils/class.util';
 
 export const vhMenuLabel: any = defineComponent({
     name: 'vh-menu-label',
@@ -22,7 +22,7 @@ export const vhMenuLabel: any = defineComponent({
     },
     setup(props, { attrs }) {
         const { class: classProps, tag, icon, title }: any = props;
-        let className = makeTextClass('vh-menu-label', '', classProps, '');
+        let className = makeClassByName('vh-menu-label', '', classProps, '');
         let titleText = title;
         if (isFunction(title)) {
             titleText = title();

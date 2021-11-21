@@ -1,5 +1,5 @@
 import { h, defineComponent, computed } from 'vue';
-import { isArray, makeTextClass } from '@/utils/class.util';
+import { isArray, makeClassByName } from '@/utils/class.util';
 
 
 export const vhCheckbox = defineComponent({
@@ -76,7 +76,7 @@ export const vhCheckbox = defineComponent({
         const { label, type, class: classProps, value, disabled } = this;
 
         let className = 'form-check-input';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         if (this._first === true) {
             this._first = false;
             if (this.modelValue && isArray(this.modelValue)) {

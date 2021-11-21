@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { Layout } from './layout';
 
 
@@ -48,12 +48,12 @@ export const vhApplication = defineComponent({
     render() {
         const { class: classProps, layout: layoutName }: any = this;
         let className = 'vh-main';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         if (this._miniSidebar === true) {
-            className = makeTextClass(className, '', 'vh-mini', '');
+            className = makeClassByName(className, '', 'vh-mini', '');
         }
         if (this.hideSidebar === true) {
-            className = makeTextClass(className, '', 'vh-hide-sidebar', '');
+            className = makeClassByName(className, '', 'vh-hide-sidebar', '');
         }
         // return the render function
         let lay: any = Layout[`${layoutName}`] ?? Layout.None;

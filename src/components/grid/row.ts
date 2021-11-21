@@ -1,20 +1,20 @@
 import { h, defineComponent } from 'vue';
-import { makeNumClass, makeTextClass } from '@/utils/class.util';
+import { makeClassByNum, makeClassByName } from '@/utils/class.util';
 
 const makeClassByProps = (props: any) => {
     let className = 'row';
-    className = makeNumClass(className, 'row-cols', props.cols);
-    className = makeNumClass(className, 'row-cols-sm', props.smcols);
-    className = makeNumClass(className, 'row-cols-md', props.mdcols);
-    className = makeNumClass(className, 'row-cols-lg', props.lgcols);
-    className = makeNumClass(className, 'row-cols-xl', props.xlcols);
-    className = makeNumClass(className, 'row-cols-xxl', props.xxlcols);
-    className = makeTextClass(className, 'justify-content', props.justify);
-    className = makeTextClass(className, 'justify-content-sm', props.justifysm);
-    className = makeTextClass(className, 'justify-content-md', props.justifymd);
-    className = makeTextClass(className, 'justify-content-lg', props.justifylg);
-    className = makeTextClass(className, 'justify-content-xl', props.justifyxl);
-    className = makeTextClass(className, 'justify-content-xxl', props.justifyxxl);
+    className = makeClassByNum(className, 'row-cols', props.cols);
+    className = makeClassByNum(className, 'row-cols-sm', props.smcols);
+    className = makeClassByNum(className, 'row-cols-md', props.mdcols);
+    className = makeClassByNum(className, 'row-cols-lg', props.lgcols);
+    className = makeClassByNum(className, 'row-cols-xl', props.xlcols);
+    className = makeClassByNum(className, 'row-cols-xxl', props.xxlcols);
+    className = makeClassByName(className, 'justify-content', props.justify);
+    className = makeClassByName(className, 'justify-content-sm', props.justifysm);
+    className = makeClassByName(className, 'justify-content-md', props.justifymd);
+    className = makeClassByName(className, 'justify-content-lg', props.justifylg);
+    className = makeClassByName(className, 'justify-content-xl', props.justifyxl);
+    className = makeClassByName(className, 'justify-content-xxl', props.justifyxxl);
     return className;
 };
 export const vhRow = defineComponent({
@@ -86,7 +86,7 @@ export const vhRow = defineComponent({
     setup(props: any, { slots, attrs }) {
         const { tag, class: classProps } = props;
         let className = makeClassByProps(props);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         // return the render function
         return () =>
             h(

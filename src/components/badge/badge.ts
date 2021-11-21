@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhBadge = defineComponent({
     name: 'vh-badge',
@@ -16,8 +16,8 @@ export const vhBadge = defineComponent({
     render() {
         const { class: classProps, type }: any = this;
         let className = 'badge';
-        className = makeTextClass(className, 'badge', type);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, 'badge', type);
+        className = makeClassByName(className, '', classProps, '');
         // return the render function
         return h('div',
             {

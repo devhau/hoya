@@ -1,5 +1,5 @@
 import { h, defineComponent, ref, onMounted } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhInput = defineComponent({
     name: 'vh-input',
@@ -28,8 +28,8 @@ export const vhInput = defineComponent({
     setup(props: any, { emit, attrs }) {
         const refElInput: any = ref(null);
         const { size, class: classProps, type, focusOnStart } = props;
-        let className = makeTextClass('form-control', 'form-control', size);
-        className = makeTextClass(className, '', classProps, '');
+        let className = makeClassByName('form-control', 'form-control', size);
+        className = makeClassByName(className, '', classProps, '');
         onMounted(() => {
             if (focusOnStart) {
                 refElInput.value.focus();

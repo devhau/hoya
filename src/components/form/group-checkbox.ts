@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhCheckbox } from './checkbox';
 import { isArray, isFunction } from '@vue/shared';
 const checkboxComponent: any = vhCheckbox;
@@ -56,7 +56,7 @@ export const vhGroupCheckbox = defineComponent({
     render() {
         const { class: classProps, source, modelValue, itemText, itemValue, headerText, headerValue, collapse, showCollapse, defaultCollapse, itemDisabled }: any = this;
         let className = 'vh-group-checkbox';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         const checkValue = (val: any) => modelValue?.includes && modelValue?.includes(val);
         const checkSubValue = (sub: any) => sub && sub.filter && sub.length === sub.filter((item: any) => checkValue(item.value)).length;
         const checkItemDisabled = (val: any, item: any = undefined) => {

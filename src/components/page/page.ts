@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhPage = defineComponent({
     name: 'vh-page',
@@ -14,7 +14,7 @@ export const vhPage = defineComponent({
     },
     setup(props, { slots, attrs }) {
         const { class: classProps } = props;
-        let className = makeTextClass('vh-page', '', classProps, '');
+        let className = makeClassByName('vh-page', '', classProps, '');
         // return the render function
         return () =>
             h(

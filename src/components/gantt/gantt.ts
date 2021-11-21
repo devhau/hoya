@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhGanttBody } from './gantt-body';
 import { vhGanttHeader } from './gantt-header';
 import { vhGanttFooter } from './gantt-footer';
@@ -55,7 +55,7 @@ export const vhGantt = defineComponent({
         const { class: classProps } = this;
 
         let className = 'vh-gantt';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         return h('div',
             {
                 ...this.$attrs,

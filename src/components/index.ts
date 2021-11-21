@@ -16,3 +16,4 @@ export * from './pagination';
 export * from './table';
 export * from './quill';
 export * from './application';
+export * from './html';

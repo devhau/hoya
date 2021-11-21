@@ -41,3 +41,4 @@ export default install;
 // each can be registered via Vue.component()
 export * from '@/components/index';
 export * from '@/extends/index';
+export * as utils from '@/utils/index';

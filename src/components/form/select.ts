@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass, makeValueByData } from '@/utils/class.util';
+import { makeClassByName, makeValueByData } from '@/utils/class.util';
 
 export const vhSelect = defineComponent({
     name: 'vh-select',
@@ -42,7 +42,7 @@ export const vhSelect = defineComponent({
 
         const { fieldValue, fieldDisplay, source, class: classProps, textAll, valueAll, isAll } = this;
         let className = 'form-select';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         const changeValue = (e: any) => {
             this.$emit('update:modelValue', e.target.value);
             if (source) {

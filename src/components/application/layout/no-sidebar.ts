@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhHeader } from './../part/header';
 import { vhFooter } from './../part/footer';
 const vhHeaderComponent = vhHeader as any;
@@ -17,7 +17,7 @@ export const vhNoSidebarLayout = defineComponent({
         let child: any = [];
 
         let className = 'vh-no-sidebar-layout';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         let { header: headerComponent, footer: footerComponent } = this.$slots;
         if (headerComponent !== undefined) {
             child = [...child, headerComponent];

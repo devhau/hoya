@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 export const vhContainer = defineComponent({
     name: 'vh-container',
     props: {
@@ -20,8 +20,8 @@ export const vhContainer = defineComponent({
     setup(props, { slots, attrs }) {
         const { tag, size, class: classProps } = props;
         let className = 'container';
-        className = makeTextClass(className, 'container', size);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, 'container', size);
+        className = makeClassByName(className, '', classProps, '');
 
         // return the render function
         return () =>

@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { getArrayRange } from '@/utils/vh.util';
 
 export const vhPagination = defineComponent({
@@ -34,7 +34,7 @@ export const vhPagination = defineComponent({
     },
     render() {
         const { class: classProps, start, end, previous, next, current, last } = this;
-        let className = makeTextClass('pagination', '', classProps, '');
+        let className = makeClassByName('pagination', '', classProps, '');
 
         // return the render function
         return h('nav', {

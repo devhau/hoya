@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhModal = defineComponent({
     name: 'vh-modal',
@@ -35,16 +35,16 @@ export const vhModal = defineComponent({
     },
     render() {
         const { class: classProps, color, size, show, title, loading } = this;
-        let className = makeTextClass('modal fade', 'modal', color);
-        let className_dialog = makeTextClass('modal-dialog', 'modal', size);
-        className = makeTextClass(className, '', classProps, '');
+        let className = makeClassByName('modal fade', 'modal', color);
+        let className_dialog = makeClassByName('modal-dialog', 'modal', size);
+        className = makeClassByName(className, '', classProps, '');
         if (show) {
-            className = makeTextClass(className, '', 'show', '');
+            className = makeClassByName(className, '', 'show', '');
         }
         if (loading) {
-            className = makeTextClass(className, '', 'vh-modal-loading', '');
+            className = makeClassByName(className, '', 'vh-modal-loading', '');
         }
-        let { footer: footerComponent, header: headerComponent }: any = this.$slots;
+        let { footer: footerComponent, header: headerComponent, default: defaultComponent }: any = this.$slots;
         let loadingComponent: any = h('div',
             {
                 class: 'vh-face-loading'
@@ -105,7 +105,7 @@ export const vhModal = defineComponent({
                                 headerComponent && h(headerComponent, { class: 'modal-header', app: this }),
                                 h('div', {
                                     class: 'modal-body'
-                                }, [loading && loadingComponent, this.$slots]),
+                                }, [loading && h(loadingComponent, {}), defaultComponent && h(defaultComponent, {})]),
                                 !footerComponent && h('div', {
                                     class: 'modal-footer'
                                 }),

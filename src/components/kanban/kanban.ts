@@ -1,4 +1,4 @@
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { defineComponent, h } from 'vue';
 import { vhKanbanColumn } from './kanban-column';
 import { vhDraggable } from '@/components/draggable';
@@ -70,7 +70,7 @@ export const vhKanban = defineComponent({
         let disabledControl = this.disabledControl;
         let forceFallback = this.forceFallback;
         let classProps = this.class;
-        let className = makeTextClass('vh-kanban', '', classProps, '');
+        let className = makeClassByName('vh-kanban', '', classProps, '');
         let { column, footerColumn, item, footerItem, contentItem }: any = this.$slots;
         const kanbanColumnChild = (data: any) => {
             if (column) {

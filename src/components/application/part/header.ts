@@ -1,5 +1,5 @@
 import { h, defineComponent, inject } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhMenu } from '@/components/menu';
 const menuComponent: any = vhMenu;
 export const vhHeader = defineComponent({
@@ -13,7 +13,7 @@ export const vhHeader = defineComponent({
     render() {
         const { class: classProps, $slots } = this;
         let className = 'vh-header';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         let child = () => {
             return [
                 h('span', {

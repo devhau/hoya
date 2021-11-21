@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { hotKey } from '@/utils/event.util';
 export const vhButton = defineComponent({
     name: 'vh-button',
@@ -40,9 +40,9 @@ export const vhButton = defineComponent({
     },
     setup(props: any, { slots, attrs, emit }) {
         const { class: classProps, color, tag, size, text, beforeIcon, afterIcon, keyCommand } = props;
-        let className = makeTextClass('btn', 'btn', color);
-        className = makeTextClass(className, 'btn', size);
-        className = makeTextClass(className, '', classProps, '');
+        let className = makeClassByName('btn', 'btn', color);
+        className = makeClassByName(className, 'btn', size);
+        className = makeClassByName(className, '', classProps, '');
         keyCommand && hotKey(keyCommand, () => {
             emit('click');
         });

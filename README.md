@@ -1,8 +1,5 @@
 # HOYA
-
-Demo Source: https://github.com/devhau/vue-ui-demo
-
-Demo web: https://devhau.github.io/vue-ui-demo/#/
+npm: npm i --save hoya
 
 Component:
 
@@ -25,6 +22,8 @@ Component:
 - vh-badge
 - vh-window
 - vh-group-checkbox
+- vh-to-html
+- vh-to-image
 
 Directives:
 

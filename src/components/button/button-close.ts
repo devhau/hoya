@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhButtonClose = defineComponent({
     name: 'vh-button-close',
@@ -11,7 +11,7 @@ export const vhButtonClose = defineComponent({
     },
     setup(props, { slots, attrs }) {
         const { class: classProps } = props;
-        let className = makeTextClass('btn-close', '', classProps, '');
+        let className = makeClassByName('btn-close', '', classProps, '');
         // return the render function
         return () =>
             h(

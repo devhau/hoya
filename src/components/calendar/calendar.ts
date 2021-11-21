@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhCalendar = defineComponent({
     name: 'vh-calendar',
@@ -14,7 +14,7 @@ export const vhCalendar = defineComponent({
     },
     render() {
         const { class: classProps } = this;
-        let className = makeTextClass('vh-calendar', '', classProps, '');
+        let className = makeClassByName('vh-calendar', '', classProps, '');
         return h('div',
             {
                 ...this.$attrs,

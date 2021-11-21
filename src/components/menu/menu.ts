@@ -1,5 +1,5 @@
 import { h, inject, defineComponent, provide } from 'vue';
-import { isFunction, makeTextClass, } from '@/utils/class.util';
+import { isFunction, makeClassByName, } from '@/utils/class.util';
 import { vhMenuLabel } from './menu-label';
 import { vhMenuLink } from './menu-link';
 const MenuLabel: any = vhMenuLabel;
@@ -71,7 +71,7 @@ export const vhMenuItem: any = defineComponent({
     },
     render() {
         const { class: classProps, tag, sub, router, icon, title, level, link }: any = this;
-        let className = makeTextClass('vh-menu-item', '', classProps, '');
+        let className = makeClassByName('vh-menu-item', '', classProps, '');
         const children = () => {
             if (this.$slots.default !== undefined) {
                 return this.$slots;
@@ -83,7 +83,7 @@ export const vhMenuItem: any = defineComponent({
                         icon, title, sub: rsSub, level
                     });
                 }
-                let classNameSub = makeTextClass('vh-menu-sub', '', 'vh-menu-component', '');
+                let classNameSub = makeClassByName('vh-menu-sub', '', 'vh-menu-component', '');
                 return [
                     h(MenuLabel, {
                         icon, title,
@@ -152,10 +152,10 @@ export const vhMenu: any = defineComponent({
             provide('showSub', showSub);
             source = getMenuShow(sourceTemp, vh_global);
         }
-        let className = makeTextClass('vh-menu', '', classProps, '');
+        let className = makeClassByName('vh-menu', '', classProps, '');
         let level: number = props.level;
         if (level > 0) {
-            className = makeTextClass(className, 'vh-menu-level', level);
+            className = makeClassByName(className, 'vh-menu-level', level);
         }
         level = level + 1;
         let children = () => {
@@ -256,10 +256,10 @@ export const vhMenuSub: any = defineComponent({
     },
     render() {
         const { class: classProps, sub, icon, title, level }: any = this;
-        let className = makeTextClass('vh-menu-sub', '', classProps, '');
+        let className = makeClassByName('vh-menu-sub', '', classProps, '');
         // return the render function
         if (this.active) {
-            className = makeTextClass(className, '', 'active', '');
+            className = makeClassByName(className, '', 'active', '');
         }
         return [
             h(MenuLabel, {

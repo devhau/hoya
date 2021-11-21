@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhColumnHeader } from './header';
 export const vhTable = defineComponent({
     name: 'vh-table',
@@ -39,8 +39,8 @@ export const vhTable = defineComponent({
     render() {
         const { class: classProps, type, option, source, sort, filter, isFilter, isSort, start, dataEmpty }: any = this;
         let className = 'vh-table';
-        className = makeTextClass(className, 'table', type);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, 'table', type);
+        className = makeClassByName(className, '', classProps, '');
         let dataHeader = (column: any) => {
             if (this.$slots[`header_${column.field}`]) {
                 let field: any = this.$slots[`header_${column.field}`];

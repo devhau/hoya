@@ -1,19 +1,19 @@
 import { h, defineComponent } from 'vue';
-import { makeNumClass, makeTextClass } from '@/utils/class.util';
+import { makeClassByNum, makeClassByName } from '@/utils/class.util';
 
 const makeClassByProps = (props: any) => {
     let className = '';
-    className = makeNumClass(className, 'col-sm', props.sm);
-    className = makeNumClass(className, 'col-md', props.md);
-    className = makeNumClass(className, 'col-lg', props.lg);
-    className = makeNumClass(className, 'col-xl', props.xl);
-    className = makeNumClass(className, 'col-xxl', props.xxl);
+    className = makeClassByNum(className, 'col-sm', props.sm);
+    className = makeClassByNum(className, 'col-md', props.md);
+    className = makeClassByNum(className, 'col-lg', props.lg);
+    className = makeClassByNum(className, 'col-xl', props.xl);
+    className = makeClassByNum(className, 'col-xxl', props.xxl);
     //offset
-    className = makeNumClass(className, 'offset-sm', props.osm);
-    className = makeNumClass(className, 'offset-md', props.omd);
-    className = makeNumClass(className, 'offset-lg', props.olg);
-    className = makeNumClass(className, 'offset-xl', props.oxl);
-    className = makeNumClass(className, 'offset-xxl', props.oxxl);
+    className = makeClassByNum(className, 'offset-sm', props.osm);
+    className = makeClassByNum(className, 'offset-md', props.omd);
+    className = makeClassByNum(className, 'offset-lg', props.olg);
+    className = makeClassByNum(className, 'offset-xl', props.oxl);
+    className = makeClassByNum(className, 'offset-xxl', props.oxxl);
     if (className === '') className = 'col';
     return className;
 };
@@ -82,7 +82,7 @@ export const vhCol = defineComponent({
     setup(props, { slots, attrs }) {
         const { tag, class: classProps } = props;
         let className = makeClassByProps(props);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
 
         // return the render function
         return () =>

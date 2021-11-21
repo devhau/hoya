@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhAlert = defineComponent({
     name: 'vh-alert',
@@ -16,8 +16,8 @@ export const vhAlert = defineComponent({
     render() {
         const { class: classProps, type }: any = this;
         let className = 'alert';
-        className = makeTextClass(className, 'alert', type);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, 'alert', type);
+        className = makeClassByName(className, '', classProps, '');
         // return the render function
         return h('div',
             {

@@ -54,3 +54,15 @@ export const hotKey = (keyCommand: string, doCommand: any) => {
         }
     });
 }
+export const hotKeyNone = (keyCommand: string, doCommand: any) => {
+    const arKeys = convertKeyToArr(keyCommand);
+    const commandEvent = (event: any) => {
+        if (checkEvents(event, arKeys)) {
+            doCommand && doCommand();
+        }
+    };
+    if (document && document.body) {
+        document.addEventListener('keydown', commandEvent);
+    }
+    return commandEvent;
+}

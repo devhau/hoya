@@ -1,5 +1,5 @@
 import { h, defineComponent, inject, ref } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { addDays, getNumberDateInRange } from '@/utils/date.util';
 
 export const vhGanttBody = defineComponent({
@@ -33,7 +33,7 @@ export const vhGanttBody = defineComponent({
     setup(props: any, { attrs }) {
         const { class: classProps, source } = props;
         let className = 'vh-gantt-body';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
 
         const refElTimeline: any = ref(null);
         const refElInfo: any = ref(null);

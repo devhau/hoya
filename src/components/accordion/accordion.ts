@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 import { vhAccordionItem } from './accordion-item';
 const AccordionItem = vhAccordionItem as any;
@@ -60,7 +60,7 @@ export const vhAccordion = defineComponent({
     render() {
         const { class: classProps, source, itemTitle, itemContent }: any = this;
         let className = 'vh-accordion accordion';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         // return the render function
         return h('div',
             {

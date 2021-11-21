@@ -1,5 +1,5 @@
 import { h, defineComponent, inject } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhAccordionItem = defineComponent({
     name: 'vh-accordion-item',
@@ -28,13 +28,13 @@ export const vhAccordionItem = defineComponent({
     },
     render() {
         const { class: classProps, item }: any = this;
-        let className = makeTextClass('accordion-item', '', classProps, '');
+        let className = makeClassByName('accordion-item', '', classProps, '');
         let classNameButton = 'accordion-button';
         let classNameAccordion = 'accordion-collapse collapse';
         if (this.itemShow === true) {
-            classNameAccordion = makeTextClass(classNameAccordion, '', 'show', '');
+            classNameAccordion = makeClassByName(classNameAccordion, '', 'show', '');
         } else {
-            classNameButton = makeTextClass(classNameButton, '', 'collapsed', '');
+            classNameButton = makeClassByName(classNameButton, '', 'collapsed', '');
         }
         // return the render function
         return h('div',

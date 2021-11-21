@@ -1,4 +1,4 @@
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { h, defineComponent, nextTick } from 'vue';
 import { vhCommand } from './command';
 let commandComponent: any = vhCommand;
@@ -67,13 +67,13 @@ export const vhLabelInput = defineComponent({
     },
     render() {
         let { modelValue, keyCommand, closeOnBlur, emptyWhenEdit, class: classPros, classEdit, classLabel, mutil, enterWhenMutil }: any = this;
-        let className = makeTextClass('vh-label-input', '', classPros, '');
+        let className = makeClassByName('vh-label-input', '', classPros, '');
         // return the render function
         if (this.editInput === true) {
             this.$emit('openEdit', this);
             let valEdit: any = this.editValue;
             let tagEdit = 'input';
-            className = makeTextClass(className, '', classEdit, '');
+            className = makeClassByName(className, '', classEdit, '');
             if (mutil) {
                 tagEdit = 'textarea';
             }
@@ -114,10 +114,10 @@ export const vhLabelInput = defineComponent({
                 },
             })
         } else {
-            className = makeTextClass(className, '', classLabel, '');
+            className = makeClassByName(className, '', classLabel, '');
             let childLabel: any = [];
             const { openEdit } = this;
-            if (this.editOnDblClick == true) {
+            if (this.editOnDblClick) {
                 childLabel = [
                     h('label', {
                         ...this.$attrs,

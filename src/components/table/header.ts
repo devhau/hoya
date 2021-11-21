@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { vhInput } from '@/components/form/input';
 import { vhButton } from '@/components/button/button';
 import { checkEvent } from '@/utils/event.util';
@@ -57,7 +57,7 @@ export const vhColumnHeader = defineComponent({
         const { class: classProps, option, sort, isSort, isFilter, dataMark }: any = this;
         let className = 'vh-column-header';
         let condition = option?.condition ?? "like";
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         let headerTitle = () => option?.title && isFunction(option?.title) ? option?.title() : option?.title;
         let child = [
             h('span', { class: 'vh-column-header_box--title' }, [headerTitle(), dataMark && `(${dataMark})`])

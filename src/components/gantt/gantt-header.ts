@@ -1,5 +1,5 @@
 import { h, defineComponent, ref, onUpdated, onMounted, inject } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 import { formatDate } from '@/utils/date.util';
 export const vhGanttHeader = defineComponent({
     name: 'vh-gantt-header',
@@ -31,7 +31,7 @@ export const vhGanttHeader = defineComponent({
     setup(props: any, { attrs }) {
         const { class: classProps } = props;
         let className = 'vh-gantt-header';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         const refElTimeline: any = ref(null);
         const refElInfo: any = ref(null);
         const timelineWith: any = ref(props.timelineWith);

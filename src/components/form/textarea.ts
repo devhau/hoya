@@ -1,5 +1,5 @@
 import { h, computed, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhTextarea = defineComponent({
     name: 'vh-textarea',
@@ -15,7 +15,7 @@ export const vhTextarea = defineComponent({
     setup(props, { slots, attrs, emit }) {
         const { class: classProps } = props;
         let className = 'form-control';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         const children = computed(() => {
             if (slots.default) {
                 return slots.default;

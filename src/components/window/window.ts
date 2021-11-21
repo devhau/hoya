@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhWindow = defineComponent({
     name: 'vh-window',
@@ -26,8 +26,8 @@ export const vhWindow = defineComponent({
     render() {
         const { class: classProps, type, title }: any = this;
         let className = 'vh-window';
-        className = makeTextClass(className, 'window', type);
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, 'window', type);
+        className = makeClassByName(className, '', classProps, '');
         let children = () => {
             return [
                 h('div', {

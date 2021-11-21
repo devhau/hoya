@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeTextClass } from '@/utils/class.util';
+import { makeClassByName } from '@/utils/class.util';
 
 export const vhGanttFooter = defineComponent({
     name: 'vh-gantt-footer',
@@ -31,7 +31,7 @@ export const vhGanttFooter = defineComponent({
     setup(props: any, { slots, attrs }) {
         const { class: classProps, } = props;
         let className = 'vh-gantt-footer';
-        className = makeTextClass(className, '', classProps, '');
+        className = makeClassByName(className, '', classProps, '');
         // return the render function
         return () =>
             h(

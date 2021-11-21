@@ -1,5 +1,5 @@
 
-export const makeNumClass = (className: string, prex: string, Num: number, pr = '-') => {
+export const makeClassByNum = (className: string, prex: string, Num: number, pr = '-') => {
     if (Num === 0) {
         return `${className} ${prex}${pr}auto`;
     }
@@ -9,7 +9,7 @@ export const makeNumClass = (className: string, prex: string, Num: number, pr = 
     return className;
 }
 
-export const makeTextClass = (className: string, prex: string, value: string | number, pr = '-') => {
+export const makeClassByName = (className: string, prex: string, value: string | number, pr = '-') => {
     if (value !== '') {
         return `${className} ${prex}${pr}${value}`;
     }

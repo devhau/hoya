@@ -1,5 +1,5 @@
 import { h, resolveComponent, defineComponent, inject } from 'vue';
-import { isFunction, makeTextClass } from '@/utils/class.util';
+import { isFunction, makeClassByName } from '@/utils/class.util';
 export const vhMenuLink: any = defineComponent({
     name: 'vh-menu-link',
     props: {
@@ -53,7 +53,7 @@ export const vhMenuLink: any = defineComponent({
     render() {
         const { class: classProps, tag, icon, title, link }: any = this;
         let router: string | any | undefined = this.router;
-        let className = makeTextClass('vh-menu-link', '', classProps, '');
+        let className = makeClassByName('vh-menu-link', '', classProps, '');
         let titleText = title;
         if (isFunction(title)) {
             titleText = title();
