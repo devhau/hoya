@@ -7,12 +7,18 @@ import AccordionComponent from './component/accordion.vue';
 import AlertComponent from './component/alert.vue';
 import FormComponent from './component/form.vue';
 import TableComponent from './component/table.vue';
+import FileManagerComponent from './component/FileManager.vue';
 
 const routes: any = [
     {
         path: '/',
         name: 'Home',
         component: HomeComponent,
+    },
+    {
+        path: '/FileManager',
+        name: 'FileManager',
+        component: FileManagerComponent,
     },
     {
         path: '/gantt',

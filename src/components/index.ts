@@ -17,3 +17,4 @@ export * from './table';
 export * from './quill';
 export * from './application';
 export * from './html';
+export * from './file-manager';

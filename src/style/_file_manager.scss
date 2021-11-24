@@ -1,0 +1,88 @@
+.vh-file-manager {
+    background: #eee;
+    max-height: 100%;
+    border-radius: 2px;
+    border: 1px solid #bfbfbf;
+    box-shadow: 2px 2px 2px #aaaaaa;
+    .toolbar {
+        height: 50px;
+        color: #eee;
+        background: #288ae2;
+    }
+    .footer {
+        height: 35px;
+        color: #eee;
+        background: #2c98f0;
+    }
+    .body {
+        background: #fff;
+        min-height: 300px;
+        display: flex;
+        flex-direction: row;
+        .tree-folders {
+            width: 300px;
+            flex: none;
+            border-right: 2px solid #bfbfbf;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                ul {
+                    margin-left: 15px;
+                    min-width: 150px;
+                }
+                li {
+                    &.active > span {
+                        background: #439de7;
+                        color: #fff;
+                    }
+                    span {
+                        padding: 5px;
+                        margin: 2px;
+                        border-radius: 2px;
+                        display: block;
+                        &:hover {
+                            background: #2b4f6d;
+                            color: #fff;
+                        }
+                    }
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .view-files {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3px 10px;
+            .file-item {
+                width: 120px;
+                height: 130px;
+                border-radius: 2px;
+                border: 1px solid #2c98f0;
+                margin: 5px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                &:hover {
+                    background: #93bde0;
+                }
+                .file-icon {
+                    flex: auto;
+                    .bi {
+                        font-size: 50px;
+                        color: #5c636a;
+                    }
+                }
+                .file-name {
+                    overflow-wrap: break-word;
+                    width: 100%;
+                    flex: none;
+                    word-wrap: break-word;
+                    padding: 2px 5px;
+                }
+            }
+        }
+    }
+}

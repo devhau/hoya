@@ -1,4 +1,4 @@
-import { h, defineComponent, ref } from 'vue';
+import { h, defineComponent } from 'vue';
 import { makeClassByName } from '@/utils/class.util';
 
 export const vhToHtml = defineComponent({
@@ -11,6 +11,10 @@ export const vhToHtml = defineComponent({
         html: {
             type: String,
             default: ''
+        },
+        isRemoveDataVue: {
+            type: Boolean,
+            default: true
         }
     },
     render() {
@@ -21,8 +25,7 @@ export const vhToHtml = defineComponent({
         // return the render function
         return h('div', {
             ...this.$attrs,
-            class: className,
-            ref: this.elChild
+            class: className
         },
             this.$slots
         );
@@ -36,7 +39,11 @@ export const vhToHtml = defineComponent({
             this.summitHtml(this.getHtml());
         },
         getHtml() {
-            return this.$el.innerHTML;
+            if (this.isRemoveDataVue) {
+                return this.$el.innerHTML.replace(/data-v-(.*?)=['"](.*?)['"]/gi, "");
+            } else {
+                return this.$el.innerHTML;
+            }
         }
     },
     mounted() {
@@ -45,14 +52,10 @@ export const vhToHtml = defineComponent({
     watch: {
         "$el.innerHTML": {
             handler: function (_html) {
-                this.summitHtml(_html);
+                this.$nextTick(() => this.updateHtml())
             },
             deep: true,
             immediate: true,
         },
-    },
-    setup() {
-        let elChild: any = ref(null);
-        return { elChild };
     },
 });

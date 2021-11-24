@@ -29,6 +29,14 @@ export default defineComponent({
           {
             className: "",
             icon: "bi bi-box",
+            title: "FileManager",
+            router: {
+              name: "FileManager",
+            },
+          },
+          {
+            className: "",
+            icon: "bi bi-box",
             title: "Gantt",
             router: {
               name: "Gantt",
