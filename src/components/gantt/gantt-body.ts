@@ -1,6 +1,6 @@
 import { h, defineComponent, inject, ref } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
-import { addDays, getNumberDateInRange } from '@/utils/date.util';
+import { makeClassByName } from '@/utils';
+import { addDays, getNumberDateInRange } from '@/utils';
 
 export const vhGanttBody = defineComponent({
     name: 'vh-gantt-body',

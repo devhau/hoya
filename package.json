@@ -116,5 +116,8 @@
   },
   "engines": {
     "node": ">=12"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }

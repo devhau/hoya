@@ -1,4 +1,4 @@
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { h, defineComponent, nextTick } from 'vue';
 import { vhCommand } from './command';
 let commandComponent: any = vhCommand;

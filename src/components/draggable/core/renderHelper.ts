@@ -1,5 +1,5 @@
 import { ComponentStructure } from "./componentStructure";
-import { isHtmlTag, isTransition } from "@/utils/tags.util";
+import { isHtmlTag, isTransition } from "@/utils";
 
 function getSlot(slots: any, key: string) {
     const slotValue = slots[key];

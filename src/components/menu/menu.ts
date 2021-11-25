@@ -1,5 +1,5 @@
 import { h, inject, defineComponent, provide } from 'vue';
-import { isFunction, makeClassByName, } from '@/utils/class.util';
+import { isFunction, makeClassByName, } from '@/utils';
 import { vhMenuLabel } from './menu-label';
 import { vhMenuLink } from './menu-link';
 const MenuLabel: any = vhMenuLabel;

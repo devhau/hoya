@@ -1,4 +1,4 @@
-import { checkEvents, convertKeyToArr } from "@/utils/event.util";
+import { checkEvents, convertKeyToArr } from "@/utils";
 
 export const Command = {
   beforeMount(el: any, binding: any) {

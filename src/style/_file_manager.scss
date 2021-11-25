@@ -5,7 +5,7 @@
     border: 1px solid #bfbfbf;
     box-shadow: 2px 2px 2px #aaaaaa;
     .toolbar {
-        height: 50px;
+        height: 40px;
         color: #eee;
         background: #288ae2;
     }
@@ -71,7 +71,7 @@
                 .file-icon {
                     flex: auto;
                     .bi {
-                        font-size: 50px;
+                        font-size: 52px;
                         color: #5c636a;
                     }
                 }
@@ -81,6 +81,7 @@
                     flex: none;
                     word-wrap: break-word;
                     padding: 2px 5px;
+                    min-height: 50px;
                 }
             }
         }

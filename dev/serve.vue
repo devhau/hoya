@@ -1,5 +1,5 @@
 <script lang="ts">
-import { formatDate } from "@/utils/date.util";
+import { formatDate } from "@/utils";
 import { defineComponent, h } from "vue";
 
 export default defineComponent({

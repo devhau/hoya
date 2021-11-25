@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 export const vhContainer = defineComponent({
     name: 'vh-container',
     props: {

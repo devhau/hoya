@@ -1,6 +1,6 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
-import { hotKey } from '@/utils/event.util';
+import { makeClassByName } from '@/utils';
+import { hotKey } from '@/utils';
 export const vhButton = defineComponent({
     name: 'vh-button',
     props: {

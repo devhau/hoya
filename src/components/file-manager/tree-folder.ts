@@ -1,5 +1,5 @@
 import { h, defineComponent, inject } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 export const vhTreeItem = defineComponent({
     name: 'vh-tree-item',
@@ -44,13 +44,18 @@ export const vhTreeItem = defineComponent({
                             e.preventDefault();
                             return;
                         }
-                        this.folderChoose(item.path);
+                        this.folderChoose(item.path, (directories: any) => {
+                            this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
+                        });
                     }
                 },
                 [
                     !openFolder && h('i', {
                         class: 'bi bi-caret-right', onClick: (e: any) => {
                             e.preventDefault()
+                            this.folderOpen(item.path, (directories: any) => {
+                                this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
+                            });               
                             this.openFolder = !this.openFolder;
                         }
                     }),
@@ -71,6 +76,13 @@ export const vhTreeItem = defineComponent({
         let item: any = this.item;
         if (item && item.folders) {
             this.folders = item.folders;
+        } else {
+            if (this.awayOpen) {
+                this.folderChoose(item.path, (directories: any) => {
+                    this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
+                });
+            }
+
         }
     },
     data() {
@@ -82,9 +94,12 @@ export const vhTreeItem = defineComponent({
     methods: {
     },
     setup() {
+        
+        const folderOpen: any = inject('folderOpen')
         const folderCurrent: any = inject('folderCurrent')
         const folderChoose: any = inject('folderChoose');
         return {
+            folderOpen,
             folderCurrent,
             folderChoose
         }
@@ -140,64 +155,18 @@ export const vhTreeRoot = defineComponent({
         let item: any = {
             path: '/',
             name: 'Root',
-            icon: 'bi bi-cloud',
-            folders: [
-                {
-                    path: '/a1',
-                    name: 'test',
-                    icon: 'bi bi-folder'
-                },
-                {
-                    path: '/a2',
-                    name: 'test2',
-                    icon: 'bi bi-folder',
-                    folders: [
-                        {
-                            path: '/a2/b1',
-                            name: 'test',
-                            icon: 'bi bi-folder'
-                        },
-                        {
-                            path: '/a2/b2',
-                            name: 'test2',
-                            icon: 'bi bi-folder',
-                            folders: [
-                                {
-                                    path: '/a2/b2/c1',
-                                    name: 'test',
-                                    icon: 'bi bi-folder'
-                                },
-                                {
-                                    path: '/a2/b2/c2',
-                                    name: 'test2',
-                                    icon: 'bi bi-folder'
-                                },
-                                {
-                                    path: '/a2/b2/c3',
-                                    name: 'test2',
-                                    icon: 'bi bi-folder'
-                                }]
-                        }]
-                },
-                {
-                    path: '/a3',
-                    name: 'test2',
-                    icon: 'bi bi-folder'
-                },
-                {
-                    path: '/a4',
-                    name: 'test2',
-                    icon: 'bi bi-folder'
-                }
-            ],
+            icon: 'bi bi-cloud'
         }
         // return the render function
-        return h('ul', {
-            ...this.$attrs,
-            class: className
-        }, [
-            h(vhTreeItem, { item, awayOpen: true, })
-        ]);
+        return h('div', {},
+            [
+                h('ul', {
+                    ...this.$attrs,
+                    class: className
+                }, [
+                    h(vhTreeItem, { item, awayOpen: true, })
+                ])
+            ]);
     },
     methods: {
     },

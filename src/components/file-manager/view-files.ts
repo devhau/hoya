@@ -1,6 +1,28 @@
-import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { h, defineComponent, inject } from 'vue';
+import { makeClassByName } from '@/utils';
 
+export const vhFileItem = defineComponent({
+    name: 'vh-file-item',
+    props: {
+        class: {
+            type: String,
+            default: '',
+        },
+        item: {}
+    },
+    render() {
+        return h('div', {
+            class: 'file-item'
+        }, [
+            h('div', {
+                class: 'file-icon'
+            }),
+            h('div', {
+                class: 'file-name'
+            }),
+        ])
+    }
+});
 export const vhViewFiles = defineComponent({
     name: 'vh-view-files',
     props: {
@@ -18,19 +40,13 @@ export const vhViewFiles = defineComponent({
             ...this.$attrs,
             class: className
         }, [
-            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                1, "dfdfdfdfdfdfdfdfdfdfdfdfdf0", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-                .map((item) => h('div', {
-                    class: 'file-item'
-                }, [
-                    h('div', { class: 'file-icon' }, h('i', { class: 'bi bi-file-earmark-text-fill' })),
-                    h('span', {class:'file-name'}, item)
-                ]))
-
+            this.files.map((item: any) => h(vhFileItem, { item }))
         ]);
     },
-    methods: {
-    },
-    mounted() {
+    setup() {
+        const files: any = inject('files')
+        return {
+            files
+        }
     }
 });

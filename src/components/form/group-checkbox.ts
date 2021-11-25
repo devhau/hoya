@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { vhCheckbox } from './checkbox';
 import { isArray, isFunction } from '@vue/shared';
 const checkboxComponent: any = vhCheckbox;

@@ -1,10 +1,9 @@
 import { h, defineComponent, nextTick } from 'vue';
-import { isFunction, } from '@/utils/class.util';
+import { isFunction, insertNodeAt, removeNode } from '@/utils';
 import { events } from "./core/sortableEvents";
 import { computeComponentStructure } from './core/renderHelper';
 import { createSortableOption, getComponentAttributes, getValidSortableEntries } from './core/componentBuilderHelper';
 import Sortable from 'sortablejs';
-import { insertNodeAt, removeNode } from '@/utils/tags.util';
 
 
 let draggingElement: any = null;

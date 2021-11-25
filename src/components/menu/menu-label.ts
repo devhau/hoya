@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { isFunction, makeClassByName, } from '@/utils/class.util';
+import { isFunction, makeClassByName, } from '@/utils';
 
 export const vhMenuLabel: any = defineComponent({
     name: 'vh-menu-label',

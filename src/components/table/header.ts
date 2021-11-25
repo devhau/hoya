@@ -1,8 +1,8 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { vhInput } from '@/components/form/input';
 import { vhButton } from '@/components/button/button';
-import { checkEvent } from '@/utils/event.util';
+import { checkEvent } from '@/utils';
 import { isFunction } from '@vue/shared';
 let vhInputComponent: any = vhInput;
 let vhButtonComponent: any = vhButton;

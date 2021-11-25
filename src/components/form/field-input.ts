@@ -1,5 +1,5 @@
 import { h, resolveComponent, inject, watch, ref, defineComponent } from 'vue';
-import { isFunction } from '@/utils/class.util';
+import { isFunction } from '@/utils';
 import { System } from '@/constants';
 export const vhFieldInput = defineComponent({
     name: 'vh-field-input',

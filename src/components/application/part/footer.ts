@@ -1,5 +1,5 @@
 import { h, defineComponent, inject } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { vhMenu } from '@/components/menu';
 const menuComponent: any = vhMenu;
 

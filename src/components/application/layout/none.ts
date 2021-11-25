@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 export const vhNoneLayout = defineComponent({
     name: 'vh-none-layout',

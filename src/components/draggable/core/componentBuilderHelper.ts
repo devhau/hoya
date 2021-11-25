@@ -1,6 +1,6 @@
-import { camelize } from "@/utils/string.util";
+import { camelize,isHtmlAttribute } from "@/utils";
 import { events, isReadOnly } from "./sortableEvents";
-import { isHtmlAttribute } from "@/utils/tags.util";
+
 
 function project(entries: any) {
     return entries.reduce((res: any, [key, value]: any) => {

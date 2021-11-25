@@ -1,5 +1,5 @@
 import { h, defineComponent, inject } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 export const vhToolbar = defineComponent({
     name: 'vh-toolbar',

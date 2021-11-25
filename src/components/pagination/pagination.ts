@@ -1,6 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
-import { getArrayRange } from '@/utils/vh.util';
+import { makeClassByName, getArrayRange } from '@/utils';
 
 export const vhPagination = defineComponent({
     name: 'vh-pagination',

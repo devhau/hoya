@@ -1,5 +1,5 @@
 import { defineComponent, h, onBeforeMount, onUnmounted } from 'vue';
-import { checkEvents, convertKeyToArr } from "@/utils/event.util";
+import { checkEvents, convertKeyToArr } from "@/utils";
 export const vhCommand = defineComponent({
     name: 'vh-command',
     emits: ['doCommand'],

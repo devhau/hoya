@@ -1,5 +1,5 @@
 import { h, defineComponent, computed } from 'vue';
-import { isArray, makeClassByName } from '@/utils/class.util';
+import { isArray, makeClassByName } from '@/utils';
 
 
 export const vhCheckbox = defineComponent({

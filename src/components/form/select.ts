@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName, makeValueByData } from '@/utils/class.util';
+import { makeClassByName, makeValueByData } from '@/utils';
 
 export const vhSelect = defineComponent({
     name: 'vh-select',

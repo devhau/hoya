@@ -1,6 +1,6 @@
 import { h, defineComponent, ref, onUpdated, onMounted, inject } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
-import { formatDate } from '@/utils/date.util';
+import { makeClassByName } from '@/utils';
+import { formatDate } from '@/utils';
 export const vhGanttHeader = defineComponent({
     name: 'vh-gantt-header',
     props: {

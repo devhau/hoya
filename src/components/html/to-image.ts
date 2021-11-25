@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import html2canvas from 'html2canvas';
 export const vhToImage = defineComponent({
     name: 'vh-to-image',

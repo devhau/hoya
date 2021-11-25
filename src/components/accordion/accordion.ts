@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 import { vhAccordionItem } from './accordion-item';
 const AccordionItem = vhAccordionItem as any;

@@ -1,9 +1,9 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { vhGanttBody } from './gantt-body';
 import { vhGanttHeader } from './gantt-header';
 import { vhGanttFooter } from './gantt-footer';
-import { addDays, getArrayDateInRange } from '@/utils/date.util';
+import { addDays, getArrayDateInRange } from '@/utils';
 const GanttBody: any = vhGanttBody;
 const GanttFooter: any = vhGanttFooter;
 const GanttHeader: any = vhGanttHeader;

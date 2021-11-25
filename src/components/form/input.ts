@@ -1,5 +1,5 @@
 import { h, defineComponent, ref, onMounted } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 export const vhInput = defineComponent({
     name: 'vh-input',

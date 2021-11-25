@@ -1,5 +1,5 @@
 import { h, resolveComponent, defineComponent, inject } from 'vue';
-import { isFunction, makeClassByName } from '@/utils/class.util';
+import { isFunction, makeClassByName } from '@/utils';
 export const vhMenuLink: any = defineComponent({
     name: 'vh-menu-link',
     props: {

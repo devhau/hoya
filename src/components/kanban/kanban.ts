@@ -1,4 +1,4 @@
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 import { defineComponent, h } from 'vue';
 import { vhKanbanColumn } from './kanban-column';
 import { vhDraggable } from '@/components/draggable';

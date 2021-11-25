@@ -1,5 +1,5 @@
 import { h, computed, defineComponent } from 'vue';
-import { makeClassByName } from '@/utils/class.util';
+import { makeClassByName } from '@/utils';
 
 export const vhTextarea = defineComponent({
     name: 'vh-textarea',

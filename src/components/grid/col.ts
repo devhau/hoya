@@ -1,5 +1,5 @@
 import { h, defineComponent } from 'vue';
-import { makeClassByNum, makeClassByName } from '@/utils/class.util';
+import { makeClassByNum, makeClassByName } from '@/utils';
 
 const makeClassByProps = (props: any) => {
     let className = '';

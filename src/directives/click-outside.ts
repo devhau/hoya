@@ -1,4 +1,4 @@
-import { checkEvent } from "@/utils/event.util";
+import { checkEvent } from "@/utils";
 import { nextTick } from "vue";
 
 export const ClickOutside = {
