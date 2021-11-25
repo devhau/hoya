@@ -34,10 +34,19 @@ export const vhFileManager = defineComponent({
     },
     setup() {
         let folderCurrent = ref("/");
+        let filesCurrent = ref([]);
         provide('folderCurrent', folderCurrent);
+        provide('filesCurrent', folderCurrent);
         provide('folderChoose', (_folder: string) => {
             folderCurrent.value = _folder;
         });
-        return { folderCurrent };
+        provide('fileChoose', (_file: never, _isMutil = true) => {
+            if (_isMutil) {
+                filesCurrent.value.push(_file);
+            } else {
+                filesCurrent.value = [_file];
+            }
+        });
+        return { folderCurrent, filesCurrent };
     }
 });
