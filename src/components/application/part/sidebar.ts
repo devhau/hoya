@@ -32,8 +32,11 @@ export const vhSidebar = defineComponent({
                 h('div', {
                     class: 'vh-sidebar-main'
                 },
+                [
+                    this.menuApp?.sidebarHeader && h(this.menuApp?.sidebarHeader,{}),
                     this.menuApp?.sidebar && h(menuComponent, { source: this.menuApp?.sidebar, class: 'vh-menu-sidebar', showSub: true }),
-                ),
+                    this.menuApp?.sidebarFooter && h(this.menuApp?.sidebarFooter,{}),
+                ]),
                 h('div', {
                     class: 'vh-version'
                 },

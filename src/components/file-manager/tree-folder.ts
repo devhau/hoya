@@ -14,7 +14,6 @@ export const vhTreeItem = defineComponent({
             default: false,
         }
     },
-    inject: ['folderCurrent'],
     render() {
         const { class: classProps } = this;
         let className = 'vh-tree-folder';
@@ -23,13 +22,21 @@ export const vhTreeItem = defineComponent({
         let item: any = this.item;
         let folders: any = this.folders;
         let openFolder: boolean = this.openFolder;
-        if (item.path == this.folderCurrent) {
+        if (this.folderCurrent && item.path == this.folderCurrent.path) {
             className = makeClassByName(className, '', 'active', '');
         }
         if (this.awayOpen) {
             openFolder = true;
-            if (item.path != this.folderCurrent) {
+            if (!!this.folderCurrent || item.path != this.folderCurrent.path) {
                 className = makeClassByName(className, '', 'active', '');
+            }
+        }
+        let iconItem = "bi bi-folder";
+        if (item.icon) {
+            iconItem = item.icon;
+        }else{
+            if(openFolder){
+                iconItem = "bi bi-folder2-open";
             }
         }
         // return the render function
@@ -44,8 +51,8 @@ export const vhTreeItem = defineComponent({
                             e.preventDefault();
                             return;
                         }
-                        this.folderChoose(item.path, (directories: any) => {
-                            this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
+                        this.folderChoose(item, (directories: any) => {
+                            this.folders = directories;
                         });
                     }
                 },
@@ -53,9 +60,9 @@ export const vhTreeItem = defineComponent({
                     !openFolder && h('i', {
                         class: 'bi bi-caret-right', onClick: (e: any) => {
                             e.preventDefault()
-                            this.folderOpen(item.path, (directories: any) => {
-                                this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
-                            });               
+                            this.folderOpen(item, (directories: any) => {
+                                this.folders = directories;
+                            });
                             this.openFolder = !this.openFolder;
                         }
                     }),
@@ -65,7 +72,7 @@ export const vhTreeItem = defineComponent({
                             this.openFolder = !this.openFolder;
                         }
                     }),
-                    h('i', { class: item.icon }),
+                    h('i', { class: iconItem }),
                     item.name
                 ]
             ),
@@ -78,8 +85,8 @@ export const vhTreeItem = defineComponent({
             this.folders = item.folders;
         } else {
             if (this.awayOpen) {
-                this.folderChoose(item.path, (directories: any) => {
-                    this.folders = directories.map((folder: any) => ({ path: '/' + folder, name: folder }));
+                this.folderChoose(item, (directories: any) => {
+                    this.folders = directories;
                 });
             }
 
@@ -94,7 +101,7 @@ export const vhTreeItem = defineComponent({
     methods: {
     },
     setup() {
-        
+
         const folderOpen: any = inject('folderOpen')
         const folderCurrent: any = inject('folderCurrent')
         const folderChoose: any = inject('folderChoose');
@@ -168,8 +175,4 @@ export const vhTreeRoot = defineComponent({
                 ])
             ]);
     },
-    methods: {
-    },
-    mounted() {
-    }
 });

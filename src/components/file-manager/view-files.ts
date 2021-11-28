@@ -11,16 +11,39 @@ export const vhFileItem = defineComponent({
         item: {}
     },
     render() {
+        let item: any = this.item;
+        let className = 'file-item';
+        if (this.filesCurrent && this.filesCurrent.indexOf(item) > -1) {
+            className = makeClassByName(className, '', 'active', '');
+
+        }
         return h('div', {
-            class: 'file-item'
+            class: className,
+            onClick: (e: any) => {
+                this.fileChoose(item, e.ctrlKey);
+            }
         }, [
             h('div', {
                 class: 'file-icon'
-            }),
+            },
+                [
+                    !item.thum && h('i', { class: 'bi bi-file-earmark-text' }),
+                    item.thum && h('img', { src: item.thum }),
+                    h('span', {}, this.filesCurrent.value)
+                ]),
             h('div', {
                 class: 'file-name'
-            }),
+            }, `${item.name} (${item.size})`),
         ])
+    },
+    setup() {
+        const filesCurrent: any = inject('filesCurrent');
+        const fileChoose: any = inject('fileChoose');
+
+        return {
+            filesCurrent,
+            fileChoose
+        }
     }
 });
 export const vhViewFiles = defineComponent({

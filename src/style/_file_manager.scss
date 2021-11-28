@@ -5,16 +5,20 @@
     border: 1px solid #bfbfbf;
     box-shadow: 2px 2px 2px #aaaaaa;
     .toolbar {
-        height: 40px;
-        color: #eee;
-        background: #288ae2;
+        background: #035280;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        .toolbar-item {
+            padding: 4px;
+        }
     }
     .footer {
         height: 35px;
-        color: #eee;
-        background: #2c98f0;
+        background: #035280;
     }
     .body {
+        overflow: auto;
         background: #fff;
         min-height: 300px;
         display: flex;
@@ -53,26 +57,36 @@
             }
         }
         .view-files {
+            flex: auto;
             display: flex;
             flex-wrap: wrap;
             padding: 3px 10px;
+            align-content: baseline;
             .file-item {
-                width: 120px;
-                height: 130px;
+                align-content: unset;
+                flex: none;
+                width: 150px;
+                min-height: 130px;
+                max-height: 160px;
                 border-radius: 2px;
-                border: 1px solid #2c98f0;
                 margin: 5px;
                 text-align: center;
                 display: flex;
                 flex-direction: column;
-                &:hover {
+                &:hover,
+                &.active {
                     background: #93bde0;
                 }
                 .file-icon {
                     flex: auto;
+                    padding: 6px;
                     .bi {
                         font-size: 52px;
                         color: #5c636a;
+                    }
+                    img {
+                        max-width: 80%;
+                        max-height: 80px;
                     }
                 }
                 .file-name {
@@ -81,7 +95,8 @@
                     flex: none;
                     word-wrap: break-word;
                     padding: 2px 5px;
-                    min-height: 50px;
+                    min-height: 70px;
+                    overflow: auto;
                 }
             }
         }

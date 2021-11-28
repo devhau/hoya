@@ -3,6 +3,16 @@ import { makeClassByName } from '@/utils';
 import { vhToolbar } from './toolbar';
 import { vhFooter } from './footer';
 import { vhBody } from './body';
+import { vhModal } from './../modal';
+
+const vhFolderUpdate = defineComponent({
+    props: {
+
+    },
+    render() {
+        return h(vhModal, { show: true });
+    }
+});
 export const vhFileManager = defineComponent({
     name: 'vh-file-manager',
     props: {
@@ -25,6 +35,7 @@ export const vhFileManager = defineComponent({
             class: className
         },
             [
+                this.showFolderUpdate && h(vhFolderUpdate as any, { show: this.showFolderUpdate, title: 'Update' }),
                 h(vhToolbar, {}),
                 h(vhBody, {}),
                 h(vhFooter, {})
@@ -34,24 +45,35 @@ export const vhFileManager = defineComponent({
     methods: {
     },
     setup(props) {
-        let folderCurrent = ref("/");
+        let showFolderUpdate = ref(false);
+        let folderUpdate = ref("");
+        let folderCurrent = ref({});
         let files = ref([]);
         let filesCurrent = ref([]);
         let option: any = props.option;
+        provide('option', option);
+
         provide('folderCurrent', folderCurrent);
-        provide('filesCurrent', folderCurrent);
+        provide('filesCurrent', filesCurrent);
         provide('files', files);
-        provide('folderChoose', (_folder: string, callback: any) => {
-            option.api.getInfo(_folder).then(({ data }: any) => {
+
+        provide('folderUpdate', (_folder: any, callback: any) => {
+            callback && callback();
+            folderUpdate.value = _folder.path;
+            showFolderUpdate.value = true;
+        });
+        provide('folderChoose', (_folder: any, callback: any) => {
+            option.api.getInfo(_folder.path).then(({ data }: any) => {
                 files.value = data.files as any;
+                filesCurrent.value = [];
                 if (callback) {
                     callback(data.directories);
                 }
             })
             folderCurrent.value = _folder;
         });
-        provide('folderOpen', (_folder: string, callback: any) => {
-            option.api.getInfo(_folder).then(({ data }: any) => {
+        provide('folderOpen', (_folder: any, callback: any) => {
+            option.api.getInfo(_folder.path).then(({ data }: any) => {
                 if (callback) {
                     callback(data.directories);
                 }
@@ -65,6 +87,6 @@ export const vhFileManager = defineComponent({
                 filesCurrent.value = [_file];
             }
         });
-        return { folderCurrent, filesCurrent, files };
+        return { showFolderUpdate, folderUpdate, folderCurrent, filesCurrent, files };
     }
 });

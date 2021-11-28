@@ -1,6 +1,6 @@
 import { h, defineComponent, inject } from 'vue';
 import { makeClassByName } from '@/utils';
-
+import { vhButton } from './../button';
 export const vhToolbar = defineComponent({
     name: 'vh-toolbar',
     props: {
@@ -17,7 +17,47 @@ export const vhToolbar = defineComponent({
         return h('div', {
             ...this.$attrs,
             class: className
-        }, this.folderCurrent);
+        }, [
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus', onClick: this.folderUpdate })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-cloud-arrow-up' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+            h('div', { class: 'toolbar-item' },
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
+            ),
+        ]);
     },
     methods: {
     },
@@ -25,10 +65,10 @@ export const vhToolbar = defineComponent({
     },
     setup() {
         const folderCurrent: any = inject('folderCurrent')
-        const folderChoose: any = inject('folderChoose');
+        const folderUpdate: any = inject('folderUpdate');
         return {
             folderCurrent,
-            folderChoose
+            folderUpdate
         }
     }
 });
