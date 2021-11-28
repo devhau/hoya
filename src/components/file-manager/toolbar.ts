@@ -19,50 +19,16 @@ export const vhToolbar = defineComponent({
             class: className
         }, [
             h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus', onClick: this.folderUpdate })
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus', onClick: () => this.folderUpdate() })
             ),
             h('div', { class: 'toolbar-item' },
                 h(vhButton, { size: 'sm', beforeIcon: 'bi bi-cloud-arrow-up' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
-            ),
-            h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus' })
             ),
         ]);
     },
     methods: {
     },
-    mounted() {
-    },
+    mounted() {},
     setup() {
         const folderCurrent: any = inject('folderCurrent')
         const folderUpdate: any = inject('folderUpdate');

@@ -19,8 +19,13 @@ export const vhFileItem = defineComponent({
         }
         return h('div', {
             class: className,
+            oncontextmenu: (e: any) => {
+                e.preventDefault();
+            },
             onClick: (e: any) => {
+                e.preventDefault();
                 this.fileChoose(item, e.ctrlKey);
+
             }
         }, [
             h('div', {

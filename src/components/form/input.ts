@@ -47,9 +47,11 @@ export const vhInput = defineComponent({
                     ref: refElInput,
                     onInput: (e: any) => {
                         emit('update:modelValue', e.target.value);
+                        emit('changeValue', e.target.value);
                     },
                     onChange: (e: any) => {
                         emit('update:modelValue', e.target.value);
+                        emit('changeValue', e.target.value);
                     },
                 },
             );

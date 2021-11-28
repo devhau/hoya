@@ -12,7 +12,8 @@ export const vhTreeItem = defineComponent({
         awayOpen: {
             type: Boolean,
             default: false,
-        }
+        },
+        parent: {}
     },
     render() {
         const { class: classProps } = this;
@@ -34,14 +35,17 @@ export const vhTreeItem = defineComponent({
         let iconItem = "bi bi-folder";
         if (item.icon) {
             iconItem = item.icon;
-        }else{
-            if(openFolder){
+        } else {
+            if (openFolder) {
                 iconItem = "bi bi-folder2-open";
             }
         }
         // return the render function
         return h('li', {
-            class: className
+            class: className,
+            oncontextmenu: (e: any) => {
+                e.preventDefault();
+            },
         }, [
             item && h('span',
                 {
@@ -51,8 +55,16 @@ export const vhTreeItem = defineComponent({
                             e.preventDefault();
                             return;
                         }
-                        this.folderChoose(item, (directories: any) => {
-                            this.folders = directories;
+                        this.refresh(true, true);
+                    },
+                    onDblclick: () => {
+                        this.folderUpdate(item, () => {
+                            let temp=this.openFolder;
+                            this.openFolder=false;
+                            this.parent && (this.parent as any).refresh(true, true, () => {
+                                this.$nextTick(() => this.refresh(true, true));
+                            });
+
                         });
                     }
                 },
@@ -60,9 +72,7 @@ export const vhTreeItem = defineComponent({
                     !openFolder && h('i', {
                         class: 'bi bi-caret-right', onClick: (e: any) => {
                             e.preventDefault()
-                            this.folderOpen(item, (directories: any) => {
-                                this.folders = directories;
-                            });
+                            this.refresh();
                             this.openFolder = !this.openFolder;
                         }
                     }),
@@ -76,8 +86,18 @@ export const vhTreeItem = defineComponent({
                     item.name
                 ]
             ),
-            openFolder && folders && h(vhTreeFolder, { class: '', folders }),
+            openFolder && folders && h(vhTreeFolder, { class: '', folders, parent: this }),
         ]);
+    },
+    methods: {
+        refresh(open = false, selectFile = false, callback:any = null) {
+            this.folderChoose(this, this.item, (directories: any) => {
+                this.folders = directories;
+                if (open)
+                    this.openFolder = true;
+                callback && callback();
+            }, selectFile);
+        }
     },
     mounted() {
         let item: any = this.item;
@@ -85,7 +105,7 @@ export const vhTreeItem = defineComponent({
             this.folders = item.folders;
         } else {
             if (this.awayOpen) {
-                this.folderChoose(item, (directories: any) => {
+                this.folderChoose(this, item, (directories: any) => {
                     this.folders = directories;
                 });
             }
@@ -98,17 +118,16 @@ export const vhTreeItem = defineComponent({
             openFolder: false,
         };
     },
-    methods: {
-    },
     setup() {
 
-        const folderOpen: any = inject('folderOpen')
         const folderCurrent: any = inject('folderCurrent')
         const folderChoose: any = inject('folderChoose');
+        const folderUpdate: any = inject('folderUpdate');
+
         return {
-            folderOpen,
             folderCurrent,
-            folderChoose
+            folderChoose,
+            folderUpdate
         }
     }
 });
@@ -121,10 +140,11 @@ export const vhTreeFolder = defineComponent({
         },
         folders: {
             type: Array
-        }
+        },
+        parent: {}
     },
     render() {
-        const { class: classProps } = this;
+        const { class: classProps, parent } = this;
         let className = 'vh-tree-folder';
         let folders: any = this.folders;
         className = makeClassByName(className, '', classProps, '');
@@ -132,7 +152,7 @@ export const vhTreeFolder = defineComponent({
         return h('ul', {
             ...this.$attrs,
             class: className
-        }, folders && folders.map((item: any) => h(vhTreeItem, { item })));
+        }, folders && folders.map((item: any) => h(vhTreeItem, { item, parent })));
     },
     methods: {
     },

@@ -15,6 +15,18 @@ export default {
           getInfo: (_path, _disk) => {
             return axios.post("getInfo", { path: _path });
           },
+          makeDirectory: (_path, _folder, _disk) => {
+            return axios.post("makeDirectory", {
+              path: _path,
+              folder: _folder,
+            });
+          },
+          renameDirectory: (_path, _folder, _disk) => {
+            return axios.post("renameDirectory", {
+              path: _path,
+              folder: _folder,
+            });
+          },
         },
       },
     };

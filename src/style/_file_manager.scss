@@ -36,11 +36,17 @@
                     min-width: 150px;
                 }
                 li {
+                    * {
+                        cursor: pointer;
+                    }
                     &.active > span {
                         background: #439de7;
                         color: #fff;
                     }
                     span {
+                        * {
+                            cursor: pointer;
+                        }
                         padding: 5px;
                         margin: 2px;
                         border-radius: 2px;
@@ -73,6 +79,9 @@
                 text-align: center;
                 display: flex;
                 flex-direction: column;
+                * {
+                    cursor: pointer;
+                }
                 &:hover,
                 &.active {
                     background: #93bde0;
