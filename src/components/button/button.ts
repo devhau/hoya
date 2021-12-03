@@ -55,7 +55,7 @@ export const vhButton = defineComponent({
             [
                 beforeIcon && h('i', { class: `icon-before ${beforeIcon}` }),
                 text && h('span', {}, text),
-                !text && h('span', {}, slots),
+                !text && slots.default && h('span', {}, slots),
                 afterIcon && h('i', { class: `icon-after ${afterIcon}` }),
             ]
         );

@@ -6,6 +6,9 @@
 }
 .btn {
     border-radius: 2px;
+    span {
+        margin: 0px 5px;
+    }
 }
 .show {
     display: block !important;
@@ -32,4 +35,11 @@
 }
 .vh-height-max {
     min-height: 100vh;
+}
+.vh-hover {
+    margin: 2px;
+    cursor: pointer;
+    &:hover {
+        background: #ccc;
+    }
 }

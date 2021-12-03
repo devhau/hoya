@@ -5,6 +5,7 @@
 </template>
 <script>
 import axios from "axios";
+import { serializeFormData } from "@/utils";
 axios.defaults.baseURL = "http://127.0.0.1:8000/api/file-manager/";
 export default {
   setup() {},
@@ -26,6 +27,15 @@ export default {
               path: _path,
               folder: _folder,
             });
+          },
+          uploadFile: (_path, _disk, _file) => {
+            return axios.post(
+              "putFile",
+              serializeFormData({
+                path: _path,
+                file: _file,
+              })
+            );
           },
         },
       },

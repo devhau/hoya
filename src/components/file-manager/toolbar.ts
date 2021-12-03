@@ -22,19 +22,21 @@ export const vhToolbar = defineComponent({
                 h(vhButton, { size: 'sm', beforeIcon: 'bi bi-folder-plus', onClick: () => this.folderUpdate() })
             ),
             h('div', { class: 'toolbar-item' },
-                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-cloud-arrow-up' })
+                h(vhButton, { size: 'sm', beforeIcon: 'bi bi-cloud-arrow-up', onClick: () => this.uploadFile() })
             ),
         ]);
     },
     methods: {
     },
-    mounted() {},
+    mounted() { },
     setup() {
         const folderCurrent: any = inject('folderCurrent')
         const folderUpdate: any = inject('folderUpdate');
+        const uploadFile: any = inject('uploadFile');
         return {
             folderCurrent,
-            folderUpdate
+            folderUpdate,
+            uploadFile
         }
     }
 });

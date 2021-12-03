@@ -59,8 +59,7 @@ export const vhTreeItem = defineComponent({
                     },
                     onDblclick: () => {
                         this.folderUpdate(item, () => {
-                            let temp=this.openFolder;
-                            this.openFolder=false;
+                            this.openFolder = false;
                             this.parent && (this.parent as any).refresh(true, true, () => {
                                 this.$nextTick(() => this.refresh(true, true));
                             });
@@ -90,7 +89,7 @@ export const vhTreeItem = defineComponent({
         ]);
     },
     methods: {
-        refresh(open = false, selectFile = false, callback:any = null) {
+        refresh(open = false, selectFile = false, callback: any = null) {
             this.folderChoose(this, this.item, (directories: any) => {
                 this.folders = directories;
                 if (open)

@@ -7,4 +7,6 @@ export { vhFieldInput } from './field-input';
 export { vhLabelInput } from './label-input';
 export { vhCommand } from './command';
 export { vhGroupCheckbox } from './group-checkbox';
+export { vhFileUpload } from './file-upload';
+
 

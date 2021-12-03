@@ -57,3 +57,56 @@
 .ql-editor {
     min-height: 100px;
 }
+.vh-file-upload {
+    border: 3px dashed grey;
+    width: 100%;
+    background: #eee;
+    position: relative;
+    border-radius: 10px;
+    min-height: 150px;
+    overflow: hidden;
+    input {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        opacity: 0;
+    }
+    &.file-drap-over {
+        .vh-file-upload__face {
+            background: #dbbdbd;
+        }
+    }
+    .vh-file-upload__face {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: black;
+        font-family: Arial;
+        position: absolute;
+        z-index: 1;
+        :hover {
+            cursor: pointer;
+            background: #dbbdbd;
+        }
+        .upload-text {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            p {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+                font-weight: 700;
+                font-size: 24px;
+                i {
+                    font-size: 35px;
+                    margin-right: 5px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

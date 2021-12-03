@@ -1,73 +1,10 @@
-import { h, defineComponent, ref, provide, inject } from 'vue';
+import { h, defineComponent, ref, provide } from 'vue';
 import { makeClassByName } from '@/utils';
 import { vhToolbar } from './toolbar';
 import { vhFooter } from './footer';
 import { vhBody } from './body';
-import { vhModal } from '../modal';
-import { vhInput } from '../form';
-import { vhButton } from '../button';
-
-const vhFolderUpdate = defineComponent({
-    props: {
-        show: {
-            type: Boolean
-        },
-        folder: {}
-    },
-    render() {
-        let titleFolder: string = 'New Folder';
-        let titleButton: string = 'Create';
-        let text: any = this.textValue;
-        if (!this.isNew) {
-            titleFolder = 'Rename Folder';
-            titleButton = 'Rename';
-        }
-        const updateValueText: any = this.updateValueText;
-        return h(vhModal, { size: 'sm', show: this.show, title: titleFolder, onHide: () => this.$emit('hide') }, {
-            default: [
-                h(vhInput as any, {
-                    modelValue: text,
-                    onChangeValue(value: any) {
-                        updateValueText(value);
-                    }
-                })
-            ],
-            footer: [
-                h(vhButton, { beforeIcon: 'bi bi-check', text: titleButton, size: 'sm', onClick: this.updateForm })
-            ]
-        });
-    },
-    methods: {
-        updateForm() {
-            if (this.isNew) {
-                this.api.makeDirectory((this.folderCurrent as any).path, this.valueText).then(() => {
-                    this.$emit('update');
-                    this.$emit('hide');
-                });
-            } else {
-                this.api.renameDirectory((this.folderCurrent as any).path, this.valueText).then(() => {
-                    this.$emit('update', true);
-                    this.$emit('hide');
-                });
-            }
-        }
-    },
-    setup(props) {
-        const valueText = ref("");
-        const textValue = ref("");
-        const isNew = ref(true);
-        const updateValueText = (value: any) => {
-            valueText.value = value;
-        }
-        if (props.folder != undefined) {
-            textValue.value = (props.folder as any).name;
-            isNew.value = false;
-        }
-        let { api }: any = inject('option');
-        let folderCurrent = inject('folderCurrent');
-        return { api, textValue, valueText, isNew, updateValueText, folderCurrent };
-    }
-});
+import { vhFolderUpdate } from './feature/folder-update';
+import { vhUploadFile } from './feature/upload-file';
 export const vhFileManager = defineComponent({
     name: 'vh-file-manager',
     props: {
@@ -91,7 +28,16 @@ export const vhFileManager = defineComponent({
             class: className
         },
             [
-                this.showFolderUpdate && h(vhFolderUpdate as any, {
+                this.showUploadFile && h(vhUploadFile,
+                    {
+                        show: this.showUploadFile,
+                        onHide: () => this.showUploadFile = false,
+                        onUpload: (files: any) => {
+                            this.showUploadFile = false;
+                            this.api.uploadFile((this.folderCurrent as any).path, "", files);
+                        }
+                    }),
+                this.showFolderUpdate && h(vhFolderUpdate, {
                     show: this.showFolderUpdate, folder: this.folderUpdate, onHide: () => this.showFolderUpdate = false, onUpdate: () => {
                         folderUpdateCallback && folderUpdateCallback();
                     }
@@ -108,6 +54,7 @@ export const vhFileManager = defineComponent({
         let showFolderUpdate = ref(false);
         let folderUpdate = ref({});
         let folderUpdateCallback = ref({});
+        let showUploadFile = ref(false);
 
         //List file from folder current
         let files = ref([]);
@@ -118,6 +65,7 @@ export const vhFileManager = defineComponent({
         let folderCurrent = ref({});
         let folderItemCurrent = ref({});
         let option: any = props.option;
+        let { api } = option;
 
         provide('option', option);
 
@@ -125,7 +73,7 @@ export const vhFileManager = defineComponent({
         provide('folderCurrent', folderCurrent);
         provide('filesCurrent', filesCurrent);
         provide('files', files);
-
+        provide('uploadFile', () => { showUploadFile.value = true });
         provide('folderUpdate', (_folder: any = undefined, callback: any = undefined) => {
             folderUpdate.value = _folder;
             if (callback == undefined) {
@@ -157,6 +105,6 @@ export const vhFileManager = defineComponent({
                 filesCurrent.value = [_file];
             }
         });
-        return { showFolderUpdate, folderUpdate, folderCurrent, filesCurrent, files, folderUpdateCallback };
+        return { api, showFolderUpdate, folderUpdate, folderCurrent, filesCurrent, files, folderUpdateCallback, showUploadFile };
     }
 });
