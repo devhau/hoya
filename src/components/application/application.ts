@@ -29,11 +29,15 @@ export const vhApplication = defineComponent({
         const touchSidebar = () => {
             this._miniSidebar = !this._miniSidebar;
         };
+        const ReUI = () => {
+            this.key = `app-${new Date().getTime()}`;
+        };
         const menuApp = this.menu;
-        return { app, touchSidebar, menuApp };
+        return { app, ReUI, touchSidebar, menuApp };
     },
     data() {
         return {
+            key: 'app-0',
             _miniSidebar: false,
         };
     },
@@ -61,7 +65,8 @@ export const vhApplication = defineComponent({
             class: 'vh-application',
         },
             h(lay, {
-                class: className
+                class: className,
+                key: this.key,
             }, this.$slots)
         );
     }

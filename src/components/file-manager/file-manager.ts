@@ -49,7 +49,7 @@ export const vhFileManager = defineComponent({
         );
     },
     methods: {},
-    setup(props) {
+    setup(props, { emit }) {
         //Form For Folder
         let showFolderUpdate = ref(false);
         let folderUpdate = ref({});
@@ -97,6 +97,7 @@ export const vhFileManager = defineComponent({
                 }
             })
             folderCurrent.value = _folder;
+            emit('folderChoose', folderCurrent.value);
         });
         provide('fileChoose', (_file: never, _isMutil = true) => {
             if (_isMutil) {
@@ -104,6 +105,7 @@ export const vhFileManager = defineComponent({
             } else {
                 filesCurrent.value = [_file];
             }
+            emit('fileChoose', filesCurrent.value);
         });
         return { api, showFolderUpdate, folderUpdate, folderCurrent, filesCurrent, files, folderUpdateCallback, showUploadFile };
     }

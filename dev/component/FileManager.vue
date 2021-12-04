@@ -30,7 +30,7 @@ export default {
           },
           uploadFile: (_path, _disk, _file) => {
             return axios.post(
-              "putFile",
+              "uploadFile",
               serializeFormData({
                 path: _path,
                 file: _file,

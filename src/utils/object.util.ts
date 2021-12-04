@@ -28,6 +28,14 @@ export const isFunction = (functionToCheck: any) => {
     return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
 }
 export const isArray = (obj: any) => Array.isArray(obj);
+export const getArrayRange = (start: Number, end: Number) => {
+    let arrInit: any = [];
+    let i: any = start;
+    for (; i <= end; i++) {
+        arrInit = [...arrInit, i];
+    }
+    return arrInit;
+}
 export const FixJson = (obj: any) => {
     return JSON.parse(JSON.stringify(obj));
 }
